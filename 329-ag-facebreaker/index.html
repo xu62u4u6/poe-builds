@@ -177,7 +177,12 @@
     .tooltip-link { display: inline-block; margin-top: 8px; color: var(--emerald); font-size: 10px; text-decoration: none; }
     .tooltip-link:hover { text-decoration: underline; }
 
-    .gear-slot.is-dim { opacity: .58; filter: saturate(.72); }
+    .gear-slot.is-dim, .gear-slot.is-context { opacity: 1; filter: saturate(.72); }
+    .gear-slot.is-dim > .item > .item-art, .gear-slot.is-dim > .item > .item-name { opacity: .58; }
+    .gear-slot.is-context > .item > .item-art, .gear-slot.is-context > .item > .item-name { opacity: .68; }
+    .gear-slot.is-dim:has(.item:hover), .gear-slot.is-context:has(.item:hover) { filter: none; }
+    .gear-slot.is-dim:has(.item:hover) > .item > .item-art, .gear-slot.is-dim:has(.item:hover) > .item > .item-name,
+    .gear-slot.is-context:has(.item:hover) > .item > .item-art, .gear-slot.is-context:has(.item:hover) > .item > .item-name { opacity: 1; }
     .gear-slot.is-target { border-color: var(--emerald); box-shadow: 0 0 0 1px color-mix(in oklch, var(--emerald) 38%, transparent); z-index: 8; }
     .gear-slot.is-target .item { background: color-mix(in oklch, var(--emerald-dim) 18%, transparent); }
     .gear-slot.is-target .item-name { color: var(--emerald); }
@@ -286,7 +291,12 @@
     .gem-node .item-tooltip, .spectre-support-node .item-tooltip { top: calc(100% + 8px); left: 50%; }
     .gem-node:hover, .gem-node:focus-visible, .spectre-support-node:hover, .spectre-support-node:focus-visible, .ledger-source:hover, .ledger-source:focus-within { z-index: 1000; }
     .gem-node:hover .item-tooltip, .gem-node:focus-visible .item-tooltip, .spectre-support-node:hover .item-tooltip, .spectre-support-node:focus-visible .item-tooltip { opacity: 1; transform: translate(-50%, 0); }
-    .full-item.is-dim { opacity: .56; filter: saturate(.72); }
+    .full-item.is-dim, .full-item.is-context { opacity: 1; filter: saturate(.72); }
+    .full-item.is-dim > .item-art, .full-item.is-dim > .item-name, .full-item.is-dim > .item-status { opacity: .56; }
+    .full-item.is-context > .item-art, .full-item.is-context > .item-name, .full-item.is-context > .item-status { opacity: .68; }
+    .full-item.is-dim:hover, .full-item.is-context:hover { filter: none; }
+    .full-item.is-dim:hover > .item-art, .full-item.is-dim:hover > .item-name, .full-item.is-dim:hover > .item-status,
+    .full-item.is-context:hover > .item-art, .full-item.is-context:hover > .item-name, .full-item.is-context:hover > .item-status { opacity: 1; }
     .full-item.is-target { border-bottom-color: var(--emerald); box-shadow: none; }
 
     .flask-tray { display: flex; gap: 4px; height: 100%; padding: 4px; }
@@ -294,7 +304,12 @@
     .flask-item .item-art { overflow: hidden; }
     .flask-item .item { padding: 2px; }
     .flask-item .item-name { font-size: 8px; }
-    .flask-item.is-dim { opacity: .58; filter: saturate(.72); }
+    .flask-item.is-dim, .flask-item.is-context { opacity: 1; filter: saturate(.72); }
+    .flask-item.is-dim > .item > .item-art, .flask-item.is-dim > .item > .item-name { opacity: .58; }
+    .flask-item.is-context > .item > .item-art, .flask-item.is-context > .item > .item-name { opacity: .68; }
+    .flask-item.is-dim:hover, .flask-item.is-context:hover { filter: none; }
+    .flask-item.is-dim:hover > .item > .item-art, .flask-item.is-dim:hover > .item > .item-name,
+    .flask-item.is-context:hover > .item > .item-art, .flask-item.is-context:hover > .item > .item-name { opacity: 1; }
     .flask-item.is-target { border-radius: 2px; box-shadow: 0 0 0 1px var(--emerald); }
 
     .jewel-tray-section { margin-top: 14px; }
@@ -316,7 +331,12 @@
     .jewel-node .item-tooltip { top: calc(100% + 8px); }
     .jewel-node:nth-last-child(-n+3) .item-tooltip { top: auto; bottom: calc(100% + 8px); transform: translate(-50%, 4px); }
     .jewel-node:hover .item-tooltip { opacity: 1; transform: translate(-50%, 0); }
-    .jewel-node.is-dim { opacity: .58; filter: saturate(.72); }
+    .jewel-node.is-dim, .jewel-node.is-context { opacity: 1; filter: saturate(.72); }
+    .jewel-node.is-dim > .jewel-art, .jewel-node.is-dim > .jewel-copy { opacity: .58; }
+    .jewel-node.is-context > .jewel-art, .jewel-node.is-context > .jewel-copy { opacity: .68; }
+    .jewel-node.is-dim:hover, .jewel-node.is-context:hover { filter: none; }
+    .jewel-node.is-dim:hover > .jewel-art, .jewel-node.is-dim:hover > .jewel-copy,
+    .jewel-node.is-context:hover > .jewel-art, .jewel-node.is-context:hover > .jewel-copy { opacity: 1; }
     .jewel-node.is-target { border-bottom-color: var(--emerald); background: color-mix(in oklch, var(--emerald-dim) 22%, transparent); }
     .jewel-node.is-target .jewel-name { color: var(--emerald); }
 
@@ -327,6 +347,7 @@
 
     .build-source-link { color: var(--emerald); font-size: 10px; text-decoration: none; white-space: nowrap; }
     .build-source-link:hover { text-decoration: underline; }
+    .snapshot-note { color: var(--faint); font-size: 10px; white-space: nowrap; }
     .mechanic-section { margin: 0 0 24px; background: transparent; border: 0; box-shadow: none; }
     .mechanic-title { display: flex; align-items: end; justify-content: space-between; gap: 18px; min-height: 34px; padding: 0 0 8px; border-bottom: 1px solid var(--line-soft); background: transparent; }
     .mechanic-title-copy { min-width: 0; display: grid; gap: 3px; }
@@ -600,8 +621,8 @@
   <main class="page">
     <nav class="mechanic-dock" id="mechanic-dock" aria-label="Mechanic quick navigation"></nav>
     <section class="character-head" id="character">
-      <div><h1>Facebreaker AGoS Doryani Luminary</h1><p data-i18n="buildSubtitle">Animate Guardian of Smiting carries clear speed; the Player and Mercenary are support layers. Boss damage is extremely high and can skip Uber phases, but mapping speed is relatively slow.</p></div>
-      <div class="character-controls"><a class="build-source-link" id="build-source-link" href="#" target="_blank" rel="noreferrer" hidden>Build source ↗</a><div class="language-switch" role="group" aria-label="Language"><button type="button" data-language="en" aria-pressed="true">EN</button><button type="button" data-language="zh" aria-pressed="false">中文</button></div></div>
+      <div><h1>Facebreaker AGoS Doryani Luminary</h1><p data-i18n="buildSubtitle">Animate Guardian of Smiting is the main damage source; the Player and Mercenary are support layers. Boss damage can be extremely high when its conditions are active, but mapping speed is relatively slow.</p></div>
+      <div class="character-controls"><a class="build-source-link" id="build-source-link" href="#" target="_blank" rel="noreferrer" hidden>Build source ↗</a><span class="snapshot-note" id="snapshot-note"></span><div class="language-switch" role="group" aria-label="Language"><button type="button" data-language="en" aria-pressed="true">EN</button><button type="button" data-language="zh" aria-pressed="false">中文</button></div></div>
     </section>
 
     <section class="mechanic-section" id="mechanics">
@@ -783,9 +804,13 @@
                 {
                   "text": "+30% to Quality of all Skill Gems",
                   "key": "quality"
+                },
+                {
+                  "text": "Anoint: Hollow Effigy — Offering Skills do not require a Corpse",
+                  "key": "offering"
                 }
               ],
-              "roleText": "技能品質與等級的外部來源。"
+              "roleText": "技能品質與等級的外部來源；Hollow Effigy 塗油讓奉獻技能不需要屍體。"
             },
             {
               "id": "player-gloves",
@@ -842,11 +867,15 @@
                   "key": "physical-defense"
                 },
                 {
+                  "text": "-18% to all Elemental Resistances",
+                  "key": "all-res-penalty"
+                },
+                {
                   "text": "40% increased Armour while not Ignited, Frozen or Shocked",
                   "key": "armour"
                 }
               ],
-              "roleText": "玩家防禦槽。"
+              "roleText": "玩家防禦與負元素抗性來源。"
             },
             {
               "id": "player-ring-1",
@@ -2881,7 +2910,7 @@
         jewels: 'Jewels', passiveTree: 'Player · passive tree',
         fullSnapshot: 'Full snapshot · 3 actors', engine: 'Build mechanics', damageEngine: 'Damage Engine', playerDefense: 'Player Defense', guardianSurvival: 'Guardian Survival',
         engineHint: 'Select a node to inspect its result and sources',
-        buildSubtitle: 'Animate Guardian of Smiting carries clear speed; the Player and Mercenary are support layers. Boss damage is extremely high and can skip Uber phases, but mapping speed is relatively slow.',
+        buildSubtitle: 'Animate Guardian of Smiting is the main damage source; the Player and Mercenary are support layers. Boss damage can be extremely high when its conditions are active, but mapping speed is relatively slow.',
         defenseHint: 'Four explanation chapters; select a chapter to inspect its mechanisms',
         defenseOverview: 'Follow the four chapters from elemental routing to physical hits, threat modifiers and final safety layers. Chapters show teaching order, not one causal chain.',
         guardianDefenseHint: 'Six explanation chapters; life, mitigation and sustain remain separate',
@@ -2890,7 +2919,7 @@
         close: 'Close', gemLinks: 'Gem Links', gemLinksHint: 'Four required socket groups · other sockets are flexible', requiredLinks: 'Required links', requiredLinksNote: 'Keep these four exactly as listed', adjustableLinks: 'Other links', adjustableLinksNote: 'Utility and defence · place wherever convenient',
         linkedGroup: 'linked group', socketGroup: 'socket group', items: 'items', flaskGroup: 'Flasks', flaskDetail: 'Open the main tray to inspect each flask', unavailable: 'Unavailable',
         unarmed: 'Unarmed', skillsBuffs: 'Skills / buffs', requiredSupport: 'Required support',
-        buildSnapshot: 'Build snapshot ↗', pob: 'PoB ↗', sourceLabel: 'Source:', sourceNote: 'Player and Guardian data come from the poe.ninja character model; the Mercenary configuration is user-confirmed as equipped.',
+        buildSnapshot: 'Build snapshot ↗', pob: 'PoB ↗', snapshotLabel: 'Snapshot:', sourceLabel: 'Source:', sourceNote: 'Player and Guardian data come from the poe.ninja character model; the Mercenary configuration is user-confirmed as equipped.',
         actor: {
           player: { title: 'Player', subtitle: 'Auras · mines · conversion' },
           guardian: { title: 'Animate Guardian', subtitle: 'Animate Guardian of Smiting · unarmed' },
@@ -2902,7 +2931,7 @@
         jewels: '珠寶', passiveTree: '玩家 · 被動樹',
         fullSnapshot: '完整快照 · 三個角色', engine: '核心機制', damageEngine: '傷害引擎', playerDefense: '玩家防禦', guardianSurvival: '守衛防禦',
         engineHint: '選擇節點查看結論與實際來源',
-        buildSubtitle: '幻化守衛．重擊為清圖主力，玩家和傭兵都是輔助性質。打王傷害極高，可以 Uber 跳階段，清圖速度偏慢。',
+        buildSubtitle: '幻化守衛．重擊是主要傷害來源，玩家和傭兵都是輔助性質。條件成立時對王傷害可以很高，但清圖速度偏慢。',
         defenseHint: '四個講解章節；選擇章節查看其中機制',
         defenseOverview: '依序說明元素改道、物理擊中、威脅修正與最後安全層。這是講解順序，不代表四區形成同一條因果鏈。',
         guardianDefenseHint: '六個講解章節；生命、減傷與續航各自成立',
@@ -2911,7 +2940,7 @@
         close: '收起', gemLinks: '寶石連線', gemLinksHint: '四串固定 · 其餘自由', requiredLinks: '必備連線', requiredLinksNote: '這四串照抄，不要改動', adjustableLinks: '其他連線', adjustableLinksNote: '功能與防禦 · 放在你方便的位置',
         linkedGroup: '連線組', socketGroup: '插槽組', items: '件物品', flaskGroup: '藥水組', flaskDetail: '回主盤逐瓶查看', unavailable: '不可用',
         unarmed: '空手', skillsBuffs: '技能／增益', requiredSupport: '必要支援',
-        buildSnapshot: '流派快照 ↗', pob: 'PoB ↗', sourceLabel: '資料來源：', sourceNote: '玩家與守衛資料來自 poe.ninja 角色資料模型；傭兵配置已由使用者確認實裝。',
+        buildSnapshot: '流派快照 ↗', pob: 'PoB ↗', snapshotLabel: '角色快照：', sourceLabel: '資料來源：', sourceNote: '玩家與守衛資料來自 poe.ninja 角色資料模型；傭兵配置已由使用者確認實裝。',
         actor: {
           player: { title: '我的角色', subtitle: '光環／地雷／轉換' },
           guardian: { title: '幻化守衛', subtitle: '幻化守衛．重擊 · 空手' },
@@ -2924,7 +2953,7 @@
       zh: { weapon: '武器', offhand: '盾牌', helm: '頭盔', body: '胸甲', amulet: '項鍊', gloves: '手套', boots: '鞋子', belt: '腰帶', ring1: '戒指', ring2: '戒指', ring3: '戒指', trinket: '珠寶', flasks: '藥水' }
     };
     const SKILL_NAMES_ZH = {
-      agos: '幻化守衛．重擊',
+      agos: '雷鳴重擊．聖判',
       'minion-damage': '召喚物傷害輔助',
       pulverise: '磨鍊輔助',
       'elemental-damage': '元素攻擊傷害輔助',
@@ -2997,9 +3026,12 @@
       '+2 to Level of Socketed Minion Gems': '插槽中的召喚物寶石等級 +2',
       '20% increased effect of Non-Curse Auras from your Skills on your Minions': '你的技能對召喚物的非詛咒光環效果增加 20%',
       '20% increased effect of Non-Curse Auras from your Skills': '你的技能的非詛咒光環效果增加 20%',
+      'Recover 5% of Life when you Block': '格擋時恢復 5% 生命',
+      'Minions Leech 0.5% of Damage as Life': '召喚物偷取 0.5% 傷害為生命',
       '+1 to Level of all Skill Gems': '所有技能寶石等級 +1',
       '+30% to Quality of all Skill Gems': '所有技能寶石品質 +30%',
       '-48 Physical Damage taken from Attack Hits': '承受的攻擊擊中物理傷害 −48',
+      '-18% to all Elemental Resistances': '全部元素抗性 −18%',
       '40% increased Armour while not Ignited, Frozen or Shocked': '未被點燃、冰凍或感電時增加 40% 護甲',
       'Adds 40 to 60 Physical Damage to Attacks': '攻擊附加 40–60 物理傷害',
       '+112% to Melee Critical Strike Multiplier': '近戰暴擊加成 +112%',
@@ -3016,6 +3048,7 @@
       "Nearby Allies' Damage with Hits is Lucky": '附近友軍的擊中傷害為幸運',
       '5% increased Movement Speed': '增加 5% 移動速度',
       'Anoint: Natural Authority — 20% increased Warcry Buff Effect': '塗油：自然權威 — 戰吼增益效果增加 20%',
+      'Anoint: Hollow Effigy — Offering Skills do not require a Corpse': '塗油：空洞雕像 — 奉獻技能不需要屍體',
       'Minions have 16% increased Attack Speed': '召喚物增加 16% 攻擊速度',
       'Minions have 14% increased Cast Speed': '召喚物增加 14% 施放速度',
       'Minions have +20% chance to Suppress Spell Damage': '召喚物有 +20% 法術傷害壓制機率',
@@ -3256,21 +3289,21 @@
         ['player', 'item', 'player-weapon', ['attack-time'], 'primary'], ['guardian', 'item', 'guardian-body', ['attack-speed']], ['player', 'gem', 'greater-multistrike', ['attack-speed']]
       ]},
       { id: 'crit', number: '03', title: '暴擊率與暴擊加成', short: '5%＋近 7% 基礎暴率 → 滿暴配置', copy: '幻化守衛有 5% 基礎暴率，加上七大教誨近 7% 的空手基礎暴率，讓滿暴配置不必犧牲大量傷害；刺客印記、惡毒之咬、暴擊球、靈魂奉獻與各件裝備的暴擊加成，再補足暴擊率與暴擊加成。', formula: '幻化守衛．重擊基礎暴率約 5%\n七大教誨≈＋6.83% 空手基礎暴率\n→ 刺客印記＋惡毒之咬＋暴擊球\n→ 深淵之喚 112%＋毀面者 30%＋七大教誨 46% 暴擊加成', targets: [
-        ['guardian', 'item', 'guardian-body', ['base-crit', 'crit-multi'], 'primary'], ['guardian', 'item', 'guardian-helm', ['crit-multi']], ['guardian', 'item', 'guardian-gloves', ['crit-multi']], ['player', 'item', 'player-jewel-10', ['crit']], ['player', 'gem', 'agos', ['base-crit'], 'context'], ['player', 'gem', 'assassins-mark', ['crit']], ['player', 'gem', 'spirit-offering', ['crit']], ['player', 'spectre', 'host-chieftain', ['power-charge']]
+        ['guardian', 'item', 'guardian-body', ['base-crit', 'crit-multi'], 'primary'], ['guardian', 'item', 'guardian-helm', ['crit-multi']], ['guardian', 'item', 'guardian-gloves', ['crit-multi']], ['player', 'item', 'player-jewel-10', ['crit']], ['guardian', 'gem', 'agos', ['base-crit'], 'context'], ['player', 'gem', 'assassins-mark', ['crit']], ['player', 'gem', 'spirit-offering', ['crit']], ['player', 'item', 'player-amulet', ['offering'], 'context'], ['player', 'spectre', 'host-chieftain', ['power-charge']]
       ]},
       { id: 'conversion', number: '04', title: '轉傷', short: '雷鳴重擊．聖判 50%＋輔助 50% → 100% 閃電', copy: '幻化守衛使用雷鳴重擊．聖判，技能自帶 50% 物理轉閃電；物理轉閃電輔助補足剩餘 50%，最終成為 100% 閃電傷害。', formula: '雷鳴重擊．聖判＝50% 物理 → 閃電\n物理轉閃電輔助＝50% 物理 → 閃電\n最終轉換結果＝100% 物理 → 閃電', targets: [
-        ['player', 'gem', 'agos', ['conversion'], 'primary'], ['player', 'gem', 'physical-to-lightning', ['conversion'], 'primary']
+        ['guardian', 'gem', 'agos', ['conversion'], 'primary'], ['player', 'gem', 'physical-to-lightning', ['conversion'], 'primary']
       ]},
-      { id: 'negative', number: '05', title: '負電', short: '玩家負電抗覆寫敵人電抗', copy: '戒指與希望之絃把玩家閃電抗性壓到負值；戰爭淬鍊使該抗性乘以 0.5，因此需要堆更低的玩家負電抗。多里亞尼之型把附近敵人的閃電抗性覆寫成玩家最終值。', formula: '原始閃電抗性＝戒指＋希望之絃＋其他詞綴\n戰爭淬鍊 → 50% 更少閃電抗性\n玩家最終閃電抗性＝原始值 × 0.5\n多里亞尼之型：附近敵人的閃電抗性＝玩家最終閃電抗性', targets: [
-        ['player', 'item', 'player-body', ['enemy-res'], 'primary'], ['player', 'item', 'player-ring-1', ['lightning-res']], ['player', 'item', 'player-ring-2', ['lightning-res']], ['player', 'item', 'player-jewel-3', ['all-res-penalty']], ['player', 'item', 'player-jewel-8', ['all-res-penalty']], ['player', 'item', 'player-jewel-9', ['all-res-penalty']], ['player', 'item', 'player-jewel-5', ['lightning-res-less']]
+      { id: 'negative', number: '05', title: '負電', short: '玩家負電抗覆寫敵人電抗', copy: '戒指、希望之絃與永生把玩家的元素／閃電抗性壓低；致命的驕傲的「50% 更少閃電抗性」會進一步放大負電。多里亞尼之型把附近敵人的閃電抗性覆寫成玩家最終值；戰爭淬鍊則是另外一條防禦用的承傷分流。', formula: '原始閃電抗性＝戒指＋希望之絃＋永生 −18% 全元素抗性＋其他詞綴\n致命的驕傲 → 50% 更少閃電抗性\n玩家最終閃電抗性＝套用更少閃電抗性後的值\n多里亞尼之型：附近敵人的閃電抗性＝玩家最終閃電抗性\nTempered by War：冰冷／閃電承傷的一半視為火焰（防禦層）', targets: [
+        ['player', 'item', 'player-body', ['enemy-res'], 'primary'], ['player', 'item', 'player-ring-1', ['lightning-res']], ['player', 'item', 'player-ring-2', ['lightning-res']], ['player', 'item', 'player-jewel-3', ['all-res-penalty']], ['player', 'item', 'player-jewel-8', ['all-res-penalty']], ['player', 'item', 'player-jewel-9', ['all-res-penalty']], ['player', 'item', 'player-belt', ['all-res-penalty']], ['player', 'item', 'player-jewel-5', ['lightning-res-less']]
       ]},
       { id: 'increased', number: '06', title: '增加傷害', short: '適用的增加傷害先相加', copy: '手套、星團、珠寶與守衛盾牌提供適用於幻化守衛攻擊的增加傷害；同類增加傷害先相加成一個倍率，條件不同的來源分開標示。', formula: '召喚物傷害：稀有手套、稀有珠寶與堅壁誓約\n極懼之眼珠寶：條件式召喚物傷害\n守衛盾牌：每 1% 攻擊格擋率＝1% 增加傷害', targets: [
         ['player', 'item', 'player-gloves', ['minion-inc'], 'primary'], ['player', 'item', 'player-jewel-1', ['minion-inc']], ['player', 'item', 'player-jewel-4', ['minion-inc']], ['player', 'item', 'player-jewel-6', ['minion-inc']], ['player', 'item', 'player-jewel-10', ['minion-inc']], ['guardian', 'item', 'guardian-shield', ['block-damage']]
       ]},
       { id: 'more', number: '07', title: '更多傷害', short: '多個更多倍率獨立相乘', copy: '多個更多傷害倍率獨立相乘。更多傷害主要來自幻化守衛．重擊六連；每個倍率都獨立乘上前一步結果，通常比相同比例的增加傷害更強。重複攻擊則另外影響實際擊中節奏。', formula: '幻化守衛．重擊寶石＝80% 更多召喚物傷害（目前 21 級快照）\n召喚物傷害輔助\n磨鍊輔助\n元素攻擊傷害輔助\n高階多重打擊輔助\n豢養狂熱啟用＝全域召喚物傷害狀態', targets: [
-        ['player', 'gem', 'agos', ['more'], 'primary'], ['player', 'gem', 'minion-damage', ['more']], ['player', 'gem', 'pulverise', ['more']], ['player', 'gem', 'elemental-damage', ['more']], ['player', 'gem', 'greater-multistrike', ['more']], ['player', 'gem', 'feeding-frenzy', ['more']]
+        ['guardian', 'gem', 'agos', ['more'], 'primary'], ['player', 'gem', 'minion-damage', ['more']], ['player', 'gem', 'pulverise', ['more']], ['player', 'gem', 'elemental-damage', ['more']], ['player', 'gem', 'greater-multistrike', ['more']], ['player', 'gem', 'feeding-frenzy', ['more']]
       ]},
-      { id: 'taken', number: '08', title: '敵人增加承受', short: '滿層感電＋風暴地雷 → +200% 承受', copy: '滿層感電與風暴地雷讓敵人承受更多傷害。高單擊傷害有助於達到 50% 感電；風暴地雷以品質、光環效果與有效地雷數提高承傷效果，最高受 150% 上限限制。兩者同時達到上限時，合計為增加 200% 敵人承受傷害。', formula: '感電：最多增加 50% 承受傷害\n風暴地雷：3%＋每 1% 品質 0.05%／顆地雷；23% 品質＋星塵 30% 品質＝53% 有效品質 → 約 5.65%／顆\n遠祖之顱的一般非詛咒光環效果＋20% → 約 6.78%／顆；150% 上限不變，實際值仍取決於敵人附近的有效地雷數量', targets: [
+      { id: 'taken', number: '08', title: '敵人增加承受', short: '滿層感電＋風暴地雷 → 理論 +200% 承受', copy: '滿層感電與風暴地雷讓敵人承受更多傷害。高單擊傷害有助於達到 50% 感電；風暴地雷以品質、已滿的光環效果與有效地雷數提高承傷效果。以目前 53Q、18 顆全有效且光環效果完整的模型，約為 122%；150% 是技能上限，不是這個配置必然達到的數字。', formula: '感電：最多增加 50% 承受傷害\n風暴地雷：3%＋每 1% 品質 0.05%／顆地雷；23% 品質＋星塵 30% 品質＝53% 有效品質 → 約 5.65%／顆\n已滿光環效果模型：18 顆全有效約 122%；150% 是技能上限，實際值仍取決於敵人附近的有效地雷數量', targets: [
         ['guardian', 'item', 'guardian-boots', ['shock-effect']], ['player', 'gem', 'stormblast', ['stormblast'], 'primary'], ['player', 'gem', 'minefield', ['delivery']], ['player', 'item', 'player-amulet', ['quality']], ['player', 'item', 'player-shield', ['aura-effect-self']], ['state', 'state', 'shock', ['taken'], 'primary'], ['state', 'state', 'stormblast-state', ['taken'], 'primary']
       ]}
     ];
@@ -3280,10 +3313,10 @@
       'attack-speed': { title: 'Attack Speed: Continuous Punches', short: 'Replica Maata rewrites attack time to 1.7 attacks/s', copy: 'Replica Maata\'s Teaching is a core item and the player\'s weapon. It changes the base attack time of non-Spectre minions, including the Guardian, to the player\'s main-hand weapon; Seven Teachings and Greater Multistrike then increase attack frequency.', formula: 'Replica Maata\nNon-Spectre Minions\' Base Attack time = Main Hand Weapon\n1.0 attack/s → about 1.7 attack/s\nSeven Teachings = 5% more Attack Speed\nGreater Multistrike = repeats and attack-speed layers' },
       crit: { title: 'Critical Strike Chance and Multiplier', short: '5% + about 7% base crit → capped setup', copy: 'AGoS has 5% base critical chance, and Seven Teachings adds about 7% unarmed base critical chance. This supports a capped-crit setup without sacrificing a large amount of damage; Assassin\'s Mark, Vicious Bite, Power Charges, Spirit Offering and item modifiers fill out the chance and multiplier.', formula: 'AGoS base crit ≈ 5%\n+ Seven Teachings ≈ 6.83% unarmed base crit\n→ Assassin\'s Mark + Vicious Bite + Power Charges\n→ Abyssus 112% + Facebreaker 30% + Seven Teachings 46% crit multi' },
       conversion: { title: 'Conversion', short: 'Smite of Divine Judgement 50% + support 50% → 100% Lightning', copy: 'AGoS uses Smite of Divine Judgement, which converts 50% of Physical damage to Lightning. Physical to Lightning Support converts the remaining 50%, leaving a final damage type of 100% Lightning.', formula: 'Smite of Divine Judgement (AGoS): 50% Physical → Lightning\nPhysical to Lightning Support: 50% Physical → Lightning\nFinal conversion: 100% Physical → Lightning' },
-      negative: { title: 'Negative Lightning Resistance', short: 'Player negative resistance overrides enemy resistance', copy: 'Rings and Thread of Hope push the player\'s Lightning Resistance below zero. Tempered by War multiplies that resistance by 0.5, so the build needs more negative resistance; Doryani\'s Prototype then overwrites nearby enemies\' Lightning Resistance with the player\'s final value.', formula: 'Raw Lightning Resistance = rings + Thread of Hope + other modifiers\nTempered by War → 50% less Lightning Resistance\nFinal Player Lightning Resistance = Raw × 0.5\nDoryani\'s Prototype: Nearby Enemy Lightning Resistance := Final Player Lightning Resistance' },
+      negative: { title: 'Negative Lightning Resistance', short: 'Player negative resistance overrides enemy resistance', copy: 'Rings, Thread of Hope and Immortal Flesh push the player\'s Elemental / Lightning Resistance below zero. Lethal Pride\'s separate 50% less Lightning Resistance modifier deepens that negative value; Tempered by War is a defensive Damage taken as layer. Doryani\'s Prototype then overwrites nearby enemies\' Lightning Resistance with the player\'s final value.', formula: 'Raw Lightning Resistance = rings + Thread of Hope + Immortal Flesh -18% all Elemental Resistances + other modifiers\nLethal Pride → 50% less Lightning Resistance\nDoryani\'s Prototype: Nearby Enemy Lightning Resistance := Final Player Lightning Resistance\nTempered by War → 50% of Cold / Lightning Damage taken as Fire (defense)' },
       increased: { title: 'Increased Damage', short: 'Applicable Increased modifiers add together', copy: 'Gloves, cluster jewels, Ghastly Eyes and the Guardian shield provide increased damage that applies to the Guardian\'s attack. Applicable Increased modifiers add together into one multiplier; different conditions remain separate.', formula: 'Minion Damage: Viper Grip, Chimeric Prism, Dusk Vessel, Fortress Covenant\nGhastly Eye: conditional Minion Damage\nGuardian shield: 1% Attack Block = 1% Damage' },
       more: { title: 'More Damage', short: 'Multiple More multipliers stack independently', copy: 'Multiple More damage multipliers stack independently. Most come from the AGoS six-link; each multiplier applies to the previous result, so the same percentage is generally stronger than Increased damage. Repeat attacks affect hit cadence separately.', formula: 'AGoS gem: 80% more Minion Damage (level 21 snapshot)\nMinion Damage Support\nPulverise\nElemental Damage with Attacks\nGreater Multistrike\nFeeding Frenzy: global minion damage state' },
-      taken: { title: 'Enemy Damage Taken', short: 'Full Shock + Stormblast → +200% Damage Taken', copy: 'Full Shock and Stormblast make enemies take more damage. High single-hit damage helps reach 50% Shock; Stormblast uses quality, aura effect and active mine count to raise Damage Taken, with a 150% cap. When both layers reach their caps, the combined result is +200% increased Damage Taken.', formula: 'Shock: up to +50% Damage Taken\nStormblast: 3% + 0.05% per quality per mine; 23Q + Ashes +30Q = 53Q → about 5.65% per mine\nMatua Tupuna\'s general non-Curse aura effect +20% → about 6.78% per mine; the 150% cap stays unchanged and coverage depends on nearby mines' }
+      taken: { title: 'Enemy Damage Taken', short: 'Full Shock + Stormblast → theoretical +200%', copy: 'Full Shock and Stormblast make enemies take more damage. High single-hit damage helps reach 50% Shock; Stormblast uses quality, full aura effect and active mine count to raise Damage Taken. In the current 53Q, 18-mine model with full aura effect, eighteen fully effective mines are about 122%; the 150% value is the skill cap, not an automatic result.', formula: 'Shock: up to +50% Damage Taken\nStormblast: 3% + 0.05% per quality per mine; 23Q + Ashes +30Q = 53Q → about 5.65% per mine\nFull aura-effect model: 18 fully effective mines ≈ 122%; 150% remains the skill cap, and coverage depends on nearby mines' }
     };
 
     const DAMAGE_LANES = [
@@ -3293,7 +3326,7 @@
       base: ['guardian', 'item', 'guardian-gloves'],
       'attack-speed': ['player', 'item', 'player-weapon'],
       crit: ['guardian', 'item', 'guardian-body'],
-      conversion: ['player', 'gem', 'agos'],
+      conversion: ['guardian', 'gem', 'agos'],
       negative: ['player', 'item', 'player-body'],
       increased: ['player', 'item', 'player-gloves'],
       more: ['player', 'gem', 'minion-damage'],
@@ -3343,12 +3376,12 @@
       },
       crit: {
         groups: [
-          { title: { zh: '基礎暴擊率', en: 'Base Critical Chance' }, refs: ['player:gem:agos', 'guardian:item:guardian-body'] },
-          { title: { zh: '暴擊率與條件來源', en: 'Critical Chance and Conditions' }, refs: ['player:item:player-jewel-10', 'player:gem:assassins-mark', 'player:gem:spirit-offering', 'player:spectre:host-chieftain'] },
+          { title: { zh: '基礎暴擊率', en: 'Base Critical Chance' }, refs: ['guardian:gem:agos', 'guardian:item:guardian-body'] },
+          { title: { zh: '暴擊率與條件來源', en: 'Critical Chance and Conditions' }, refs: ['player:item:player-jewel-10', 'player:gem:assassins-mark', 'player:gem:spirit-offering', 'player:item:player-amulet', 'player:spectre:host-chieftain'] },
           { title: { zh: '暴擊加成', en: 'Critical Multiplier' }, refs: ['guardian:item:guardian-helm', 'guardian:item:guardian-gloves'] }
         ],
         values: {
-          'player:gem:agos': { zh: '約 5% 基礎暴擊率', en: '≈ 5% base critical chance' },
+          'guardian:gem:agos': { zh: '約 5% 基礎暴擊率', en: '≈ 5% base critical chance' },
           'guardian:item:guardian-body': { zh: '約 +6.83% 基礎暴率 · +46% 暴擊加成', en: '≈ +6.83% base crit · +46% crit multi' },
           'player:spectre:host-chieftain': { zh: '吼叫提供暴擊球', en: 'Warcry supplies Power Charges' }
         },
@@ -3356,9 +3389,9 @@
         note: { zh: '最終暴擊率仍取決於標記、暴擊球、奉獻與實際覆蓋率。', en: 'Final critical chance still depends on Mark, Power Charges, Offering and their real uptime.' }
       },
       conversion: {
-        groups: [{ title: { zh: '物理轉閃電', en: 'Physical to Lightning' }, refs: ['player:gem:agos', 'player:gem:physical-to-lightning'] }],
+        groups: [{ title: { zh: '物理轉閃電', en: 'Physical to Lightning' }, refs: ['guardian:gem:agos', 'player:gem:physical-to-lightning'] }],
         values: {
-          'player:gem:agos': { zh: '50% 物理 → 閃電', en: '50% Physical → Lightning' },
+          'guardian:gem:agos': { zh: '50% 物理 → 閃電', en: '50% Physical → Lightning' },
           'player:gem:physical-to-lightning': { zh: '50% 物理 → 閃電', en: '50% Physical → Lightning' }
         },
         results: [{ label: { zh: '最終傷害類型', en: 'Final damage type' }, value: { zh: '100% 閃電', en: '100% Lightning' } }],
@@ -3366,11 +3399,11 @@
       },
       negative: {
         groups: [
-          { title: { zh: '玩家閃電抗性來源', en: 'Player Lightning Resistance Sources' }, refs: ['player:item:player-ring-1', 'player:item:player-ring-2', 'player:item:player-jewel-5'], compactRefs: ['player:item:player-jewel-3', 'player:item:player-jewel-8', 'player:item:player-jewel-9'], compactLabel: { zh: '希望之絃 ×3', en: 'Thread of Hope ×3' }, compactValue: { zh: '總計 −58% 全元素抗性', en: '−58% total Elemental Resistances' } },
+          { title: { zh: '玩家閃電抗性來源', en: 'Player Lightning Resistance Sources' }, refs: ['player:item:player-ring-1', 'player:item:player-ring-2', 'player:item:player-belt', 'player:item:player-jewel-5'], compactRefs: ['player:item:player-jewel-3', 'player:item:player-jewel-8', 'player:item:player-jewel-9'], compactLabel: { zh: '希望之絃 ×3', en: 'Thread of Hope ×3' }, compactValue: { zh: '總計 −58% 全元素抗性', en: '−58% total Elemental Resistances' } },
           { title: { zh: '敵人抗性覆寫', en: 'Enemy Resistance Override' }, refs: ['player:item:player-body'] }
         ],
-        values: { 'player:item:player-body': { zh: '附近敵人閃電抗性 := 玩家閃電抗性', en: 'Nearby Enemy Lightning Resistance := Player Lightning Resistance' } },
-        results: [{ label: { zh: '計算順序', en: 'Calculation order' }, value: { zh: '抗性來源加總 → 戰爭淬鍊 ×0.5 → 覆寫敵人抗性', en: 'sum sources → Tempered by War ×0.5 → enemy override' } }],
+        values: { 'player:item:player-body': { zh: '附近敵人閃電抗性 := 玩家閃電抗性', en: 'Nearby Enemy Lightning Resistance := Player Lightning Resistance' }, 'player:item:player-belt': { zh: '永生：−18% 全元素抗性', en: 'Immortal Flesh: -18% to all Elemental Resistances' }, 'player:item:player-jewel-5': { zh: '50% 更少閃電抗性（輸出）；Tempered by War 另為防禦層', en: '50% less Lightning Resistance (offense); Tempered by War is a separate defense layer' } },
+        results: [{ label: { zh: '計算順序', en: 'Calculation order' }, value: { zh: '抗性來源加總（含永生 −18%）→ 致命的驕傲 50% 更少閃電抗性 → 覆寫敵人抗性', en: 'sum sources including Immortal Flesh -18% → Lethal Pride 50% less Lightning Resistance → enemy override' } }],
         note: { zh: '這是覆寫，不是從頭目原本的抗性繼續相減。', en: 'This is an override, not subtraction from the boss\'s original resistance.' }
       },
       increased: {
@@ -3383,11 +3416,11 @@
       },
       more: {
         groups: [
-          { title: { zh: '幻化守衛．重擊六連更多傷害', en: 'AGoS Six-Link Multipliers' }, refs: ['player:gem:agos', 'player:gem:minion-damage', 'player:gem:pulverise', 'player:gem:elemental-damage', 'player:gem:greater-multistrike'] },
+          { title: { zh: '幻化守衛．重擊六連更多傷害', en: 'AGoS Six-Link Multipliers' }, refs: ['guardian:gem:agos', 'player:gem:minion-damage', 'player:gem:pulverise', 'player:gem:elemental-damage', 'player:gem:greater-multistrike'] },
           { title: { zh: '全域狀態', en: 'Global State' }, refs: ['player:gem:feeding-frenzy'] }
         ],
         values: {
-          'player:gem:agos': { zh: '80% 更多召喚物傷害（21 級）', en: '80% more Minion Damage (Lv21)' }
+          'guardian:gem:agos': { zh: '80% 更多召喚物傷害（21 級）', en: '80% more Minion Damage (Lv21)' }
         },
         results: [{ label: { zh: '合併方式', en: 'Combination rule' }, value: { zh: '各個更多傷害倍率獨立相乘', en: 'Each More multiplier applies multiplicatively' } }],
         note: { zh: '高階多重打擊輔助的重複攻擊效果需與單次擊中和攻擊頻率分開閱讀。', en: 'Greater Multistrike repeats must be read separately from Average Hit and Hit Rate.' }
@@ -3399,10 +3432,10 @@
         ],
         values: {
           'state:state:shock': { zh: '最多增加 50% 承受傷害', en: 'Up to +50% Damage Taken' },
-          'state:state:stormblast-state': { zh: '約 5.65% 未計光環效果／顆 · 上限 150%', en: '5.65% raw / mine · cap 150%' }
+          'state:state:stormblast-state': { zh: '53Q、滿光環模型：18 顆約 122% · 上限 150%', en: '53Q, full-aura model: 18 mines ≈ 122% · cap 150%' }
         },
         results: [{ label: { zh: '敵人端作用', en: 'Enemy-side effect' }, value: { zh: '提高敵人承受傷害', en: 'Increases enemy Damage Taken' } }],
-        note: { zh: '23% 品質＋星塵 30% 品質＝53% 有效品質；遠祖之顱的一般非詛咒光環效果 +20% 後約 6.78%／顆，150% 上限不變。實際結果仍取決於感電強度與敵人附近的有效地雷數。', en: '23Q + Ashes +30Q = 53Q; Matua Tupuna\'s general non-Curse aura effect +20% brings the raw value to about 6.78% per mine. The 150% cap is unchanged; coverage still depends on effective mines near the enemy.' }
+        note: { zh: '23% 品質＋星塵 30% 品質＝53% 有效品質；本模型已把目前配置的光環效果納入，18 顆全有效約 122%；150% 是技能上限，實際結果仍取決於感電強度與敵人附近的有效地雷數。', en: '23Q + Ashes +30Q = 53Q; this model includes the current aura effect. Eighteen fully effective mines are about 122%; 150% is the skill cap, and coverage still depends on Shock strength and effective mines near the enemy.' }
       }
     };
 
@@ -3477,8 +3510,8 @@
         en: { outcome: 'Abyssus raises Physical Damage Taken → invest in Armour and mitigation', facts: [['Threat', 'Abyssus: 48% increased Physical Damage Taken'], ['Counter-layer', 'Determination, Armour and passive physical mitigation'], ['Boundary', 'Mitigation compensation, not physical immunity']] }
       },
       'guardian-block': {
-        zh: { outcome: '投資格擋 → 格擋後恢復 7% 生命', facts: [['格擋', '盾牌、堅壁誓約與天賦建立雙格'], ['恢復', '格擋後恢復 7% 生命'], ['額外效果', '每 1% 攻擊格擋率＝1% 增加傷害']] },
-        en: { outcome: 'Invest in Block → recover 7% Life after blocking', facts: [['Block', 'Shield, Fortress Covenant and passives build attack and spell block'], ['Recovery', 'Recover 7% Life after blocking'], ['Extra effect', '1% Attack Block Chance = 1% increased Damage']] }
+        zh: { outcome: '投資格擋 → 現行配置格擋後恢復 7% 生命', facts: [['格擋', '盾牌、堅壁誓約與天賦建立雙格'], ['恢復', '盾牌詞綴 5%＋天賦回血，現行配置合計 7% 生命'], ['額外效果', '每 1% 攻擊格擋率＝1% 增加傷害']] },
+        en: { outcome: 'Invest in Block → current setup recovers 7% Life after blocking', facts: [['Block', 'Shield, Fortress Covenant and passives build attack and spell block'], ['Recovery', 'Shield modifier 5% + passive recovery = 7% Life in the current setup'], ['Extra effect', '1% Attack Block Chance = 1% increased Damage']] }
       },
       'guardian-life': {
         zh: { outcome: '等級決定基礎生命 × 天賦召喚物生命%', facts: [['基礎生命', '幻化守衛．重擊等級決定守衛基礎生命'], ['生命倍率', '天賦取得的召喚物生命%'], ['補充', '星塵的 +1 技能等級會提高基礎生命']] },
@@ -3523,7 +3556,7 @@
       survival: {
         id: 'guardian-survival', number: 'S', title: '守衛防禦', short: '抗性、物理、格擋與偷取', copy: '幻化守衛是單一主砲；生命、抗性、物理承傷、格擋恢復與條件式敵人減益共同決定它能否持續輸出。', cards: [
           { id: 'guardian-life', number: 'S1', title: '幻化守衛生命池', short: '等級決定基礎生命 × 天賦召喚物生命%', copy: '幻化守衛．重擊等級決定守衛的基礎生命，再乘上天賦取得的召喚物生命%。星塵的 +1 技能等級也會提高基礎生命。', formula: '幻化守衛基礎生命 → 隨幻化守衛．重擊寶石等級成長\n星塵 → 所有技能寶石等級 +1\n被動樹／珠寶 → 增加召喚物最大生命\n幻化守衛最終生命＝隨等級成長的基礎生命 × 適用的召喚物生命倍率', targets: [
-            ['state', 'state', 'guardian-life', ['survival']], ['player', 'gem', 'agos', ['life']], ['player', 'item', 'player-amulet', ['gem-level']]
+            ['state', 'state', 'guardian-life', ['survival']], ['guardian', 'gem', 'agos', ['life']], ['player', 'item', 'player-amulet', ['gem-level']]
           ]},
           { id: 'minion-resistances', number: 'S2', title: '召喚物抗性', short: '抗性撐滿大幅提升生存能力', copy: '幻化守衛的基礎抗性由火焰淨化、極懼之眼珠寶與召喚物抗性天賦補足；抗性撐滿可以大幅提升生存能力。召喚幽魂的 +30% 只給幽魂。', formula: '幻化守衛的基礎召喚物抗性\n火焰淨化：20% 品質＋星塵 30% 品質＝50% 有效品質\n遠祖之顱對幻化守衛：一般光環效果 20%＋對召喚物的光環效果 20%\n極懼之眼珠寶＋被動樹 → 召喚物抗性\n召喚幽魂 +30% → 只給幽魂，不計入幻化守衛', targets: [
             ['state', 'state', 'minion-resistances', ['survival']], ['player', 'gem', 'purity-of-fire', ['defense']], ['player', 'item', 'player-amulet', ['quality']], ['player', 'item', 'player-shield', ['aura-effect', 'aura-effect-self']], ['player', 'item', 'player-jewel-2', ['minion-res']], ['player', 'item', 'player-jewel-7', ['minion-res']]
@@ -3531,7 +3564,7 @@
           { id: 'guardian-physical', number: 'S3', title: '幻化守衛承受的物理傷害', short: '深淵之喚拉高物傷 → 投資護甲／物免', copy: '深淵之喚讓幻化守衛額外承受物理傷害，因此配置重點轉為玩家的堅定光環、護甲與天賦物理減免。', formula: '深淵之喚 → 增加 48% 承受的物理傷害\n堅定 → 護甲效果套用於附近的幻化守衛\n天賦物理減免 → 補強物理擊中\n這是減傷補償，不是物理免疫。', targets: [
             ['state', 'state', 'guardian-physical', ['survival']], ['guardian', 'item', 'guardian-helm', ['physical-taken']], ['player', 'gem', 'determination', ['defense']]
           ]},
-          { id: 'guardian-block', number: 'S4', title: '格擋與恢復', short: '投資格擋 → 格擋後回血 7% 生命', copy: '盾牌、堅壁誓約與天賦建立雙格；格擋後恢復 7% 生命，並由攻擊格擋轉換成增加傷害。', formula: '攻擊格擋：盾牌基礎 24%＋堅壁誓約 10%＋被動天賦圈 30%＝64%（尚未計入其他詞綴）\n法術格擋：堅壁誓約 10%＋被動天賦圈 30%＝40%（尚未計入其他詞綴）\n格擋後恢復 7% 生命\n每 1% 攻擊格擋率＝1% 增加傷害', targets: [
+          { id: 'guardian-block', number: 'S4', title: '格擋與恢復', short: '投資格擋 → 格擋後回血 7% 生命', copy: '盾牌、堅壁誓約與天賦建立雙格；盾牌詞綴提供 5% 格擋回血，另有天賦回血，現行配置合計恢復 7% 生命，並由攻擊格擋轉換成增加傷害。', formula: '攻擊格擋：盾牌基礎 24%＋堅壁誓約 10%＋被動天賦圈 30%＝64%（尚未計入其他詞綴）\n法術格擋：堅壁誓約 10%＋被動天賦圈 30%＝40%（尚未計入其他詞綴）\n盾牌格擋回血 5%＋天賦回血 → 現行合計 7% 生命\n每 1% 攻擊格擋率＝1% 增加傷害', targets: [
             ['state', 'state', 'guardian-block', ['survival']], ['guardian', 'item', 'guardian-shield', ['base-block', 'sap-on-block', 'block-recovery', 'block-damage']], ['player', 'item', 'player-jewel-6', ['minion-block']]
           ]},
           { id: 'guardian-leech', number: 'S5', title: '偷取續航', short: '必須持續擊中', copy: '極懼之眼珠寶的召喚物偷取維持幻化守衛生命，但前提是幻化守衛必須實際擊中敵人；沒有命中就會出現回血空窗。', formula: '極懼之眼珠寶 → 召喚物偷取生命\n幻化守衛．重擊必須命中敵人才會產生偷取\n持續命中比靜態恢復數字更重要。', targets: [
@@ -3555,7 +3588,7 @@
       'minion-resistances': { title: 'Minion Resistances', short: 'Capped resistances greatly improve survival', copy: 'AG starts with minion base resistances, then adds Purity of Fire, Ghastly Eyes and passive-tree minion resistance. Capping these resistances greatly improves survival; Raise Spectre\'s +30% applies only to Spectres.', formula: 'AG base minion resistances\nPurity of Fire: 20Q + Ashes 30Q = 50Q\nMatua on AG: 20% general aura effect + 20% aura effect on minions\nGhastly Eye + passive tree → minion resistance\nRaise Spectre +30% → Spectres only, excluded from AG' },
       'guardian-physical': { title: 'Physical Damage Taken by the Guardian', short: 'Abyssus raises Physical Damage Taken → invest in Armour and mitigation', copy: 'Abyssus increases Physical Damage taken by AG, so the defensive investment shifts to the player\'s Determination aura, Armour and passive physical mitigation.', formula: 'Abyssus → 48% increased Physical Damage Taken\nDetermination → Armour applies to nearby AG\nPassive physical mitigation → reinforces Physical Hits\nThis is mitigation, not physical immunity.' },
       'guardian-life': { title: 'Guardian Life Pool', short: 'Gem level → base Life × passive-tree Minion Life %', copy: 'AGoS gem level determines the Guardian\'s base Life, then Minion Life % from the passive tree multiplies it. Ashes\' +1 gem level also raises the base.', formula: 'AG base Life → scales with Animate Guardian of Smiting gem level\nAshes of the Stars → +1 to all Skill Gems\nPassive tree / jewels → increased Minion maximum Life\nFinal AG Life = level-scaled base Life × total applicable Minion Life modifiers' },
-      'guardian-block': { title: 'Block and Recovery', short: 'Invest in Block → recover 7% Life after blocking', copy: 'The shield, Fortress Covenant and the passive wheel build attack and spell block; blocking recovers 7% Life and attack block also becomes increased damage.', formula: 'Attack Block: shield base 24% + Fortress Covenant 10% + passive wheel 30% = 64% before other modifiers\nSpell Block: Fortress Covenant 10% + passive wheel 30% = 40% before other modifiers\nRecover 7% Life after blocking\n1% Attack Block Chance = 1% increased Damage' },
+      'guardian-block': { title: 'Block and Recovery', short: 'Invest in Block → current setup recovers 7% Life after blocking', copy: 'The shield, Fortress Covenant and the passive wheel build attack and spell block; the shield modifier recovers 5% Life and passive recovery brings the current setup to 7%. Attack block also becomes increased damage.', formula: 'Attack Block: shield base 24% + Fortress Covenant 10% + passive wheel 30% = 64% before other modifiers\nSpell Block: Fortress Covenant 10% + passive wheel 30% = 40% before other modifiers\nShield modifier 5% + passive recovery = 7% Life after blocking in the current setup\n1% Attack Block Chance = 1% increased Damage' },
       'guardian-leech': { title: 'Leech Sustain', short: 'Requires repeated hits', copy: 'Ghastly Eye leech only sustains AG while it is actually hitting enemies; no hits means a recovery gap.', formula: 'Ghastly Eye → Minions Leech Life\nAGoS must hit enemies to create leech\nAttack uptime matters more than a static recovery number.' },
       'guardian-conditional': { title: 'Conditional Enemy Debuffs', short: 'Sap + Malediction → conditional mitigation', copy: 'Shield block triggers Sap, and the boots\' Lightning ailment effect amplifies it. Malediction comes from the Lycia ascendancy and requires Profane Ground; a Consecrated Ground flask, Bottled Faith or Rationalism can supply that ground. Sap is about 8% less enemy Damage, while Malediction reduces enemy Damage dealt by 10%.', formula: 'Shield block → Sap; boots\' Lightning ailment effect → about 8% less enemy Damage\nBitter Heresy (Lycia ascendancy) → Malediction on enemies in Profane Ground\nConsecrated Ground flask / Bottled Faith, or Rationalism → ground source\nMalediction → 10% reduced enemy damage dealt\nBoth layers are conditional, not permanent mitigation.' }
     };
@@ -3663,7 +3696,7 @@
 
     const STATE_CARDS = {
       shock: { eyebrow: '敵人承受傷害', name: '感電', value: '最多增加 50% 承受傷害', detail: '感電是敵人承受傷害層；暴充的閃電異常效果與實際感電覆蓋率分開記錄。', source: '暴充 · 閃電異常' },
-      'stormblast-state': { eyebrow: '敵人承受傷害', name: '風暴地雷', value: '約 5.65% 未計光環效果／顆 · 上限 150%', detail: '原始基礎是 3%；寶石卡的 Lv2／23Q 會顯示約 4%（尚未計入星塵）。星塵再提供 30% 技能寶石品質，所以有效品質為 53Q。公式為 3%＋53 × 0.05%＝約 5.65% 增加承受傷害／顆地雷。遠祖之顱的一般非詛咒光環效果 +20% 後約為 6.78%／顆；只作用於召喚物的那條 20% 不算。150% 上限不變，實際疊層仍以敵人附近的有效地雷數為準。', source: '風暴地雷 · 星塵 · 遠祖之顱 · 地雷網輔助' },
+      'stormblast-state': { eyebrow: '敵人承受傷害', name: '風暴地雷', value: '53Q · 滿光環模型 18 顆約 122% · 上限 150%', detail: '原始基礎是 3%；寶石卡的 Lv2／23Q 會顯示約 4%（尚未計入星塵）。星塵再提供 30% 技能寶石品質，所以有效品質為 53Q。這裡採用已滿的光環效果模型；18 顆全有效約 122%，150% 是技能上限，不把上限寫成這個配置必然達到的數字。實戰疊層仍以敵人附近的有效地雷數為準。', source: '風暴地雷 · 星塵 · 遠祖之顱 · 地雷網輔助' },
       'damage-routing': { eyebrow: '玩家防禦 · 目標配置', name: '承傷分流', value: '冰電 → 火焰／混沌', detail: '以目標配置的神聖血肉盾牌與永恆珠寶拉奇亞塔改寫元素承傷路徑。這是承受傷害視為，不是傷害轉換；若目前快照仍是其他盾牌，不把它誤稱為已完成。', source: '目標盾牌：神聖血肉 · 永恆珠寶：拉奇亞塔' },
       'fire-chaos-res': { eyebrow: '玩家防禦', name: '火焰／混沌抗性', value: '集中補火抗與混抗', detail: '火焰淨化由星塵提高到有效 50Q，並吃遠祖之顱的 20% 一般非詛咒光環效果；戒指與 12 天賦星團補足剩餘抗性。', source: '火焰淨化 · 星塵 · 遠祖之顱 · 戒指 · 12 天賦星團' },
       'physical-hits': { eyebrow: '玩家防禦', name: '物理擊中', value: '堅定＋護甲', detail: '物理沒有被分流，是玩家主要缺口；永生的 -48 物理攻擊擊中傷害與條件式 +40% 護甲，搭配堅定處理物理擊中。', source: '堅定 · 永生 · 可選守望之眼' },
@@ -3675,14 +3708,14 @@
       'luminary-transfer': { eyebrow: '隊伍防禦', name: '輝耀傷害分攤', value: '剩餘擊中傷害的 20% → 傭兵', detail: '玩家完成減傷後，部分剩餘擊中傷害由傭兵生命承擔；這不是護甲或抗性的額外乘區。', source: '忠誠保鑣 · 輝耀昇華' },
       'minion-resistances': { eyebrow: '守衛生存', name: '召喚物抗性', value: '基礎抗性＋光環與珠寶', detail: '幻化守衛由火焰淨化、極懼之眼珠寶與召喚物抗性天賦補強；召喚幽魂的 +30% 只影響幽魂，不列入幻化守衛。', source: '幻化守衛基礎抗性 · 火焰淨化 · 星塵 · 遠祖之顱 · 極懼之眼珠寶 · 被動樹' },
       'guardian-physical': { eyebrow: '守衛生存', name: '守衛承受的物理傷害', value: '深淵之喚副作用＋堅定', detail: '深淵之喚讓幻化守衛額外承受物理傷害，堅定和其他物理層負責補回來。', source: '深淵之喚 · 堅定' },
-      'guardian-block': { eyebrow: '守衛生存', name: '格擋與恢復', value: '64% 攻格／40% 法格（其他來源前）', detail: '盾牌基礎 24% 攻格、堅壁誓約 10% 雙格與天賦圈 30% 雙格；盾牌另提供格擋回血與攻格增傷。', source: '稀有盾牌 · 堅壁誓約 · 被動天賦圈' },
+      'guardian-block': { eyebrow: '守衛生存', name: '格擋與恢復', value: '64% 攻格／40% 法格（其他來源前）', detail: '盾牌基礎 24% 攻格、堅壁誓約 10% 雙格與天賦圈 30% 雙格；盾牌詞綴提供 5% 格擋回血，加上天賦回血後，現行配置合計恢復 7% 生命，並把攻擊格擋轉成增加傷害。', source: '稀有盾牌 · 堅壁誓約 · 被動天賦圈' },
       'guardian-life': { eyebrow: '守衛生存', name: '守衛生命池', value: '技能基礎生命 × 召喚物生命%', detail: '幻化守衛．重擊技能等級決定基礎生命，再乘上被動樹、珠寶與其他召喚物最大生命來源；星塵提供 +1 技能等級。', source: '幻化守衛．重擊 · 星塵 · 被動樹 · 珠寶' },
       'guardian-leech': { eyebrow: '守衛生存', name: '偷取續航', value: '必須持續擊中', detail: '召喚物偷取只有在幻化守衛實際擊中敵人時才會維持。', source: '極懼之眼珠寶 · 幻化守衛攻擊覆蓋率' },
       'guardian-conditional': { eyebrow: '敵人減益', name: '條件式敵人減益', value: '殘喘約 8% 更少＋惡語術減少 10%', detail: '殘喘需要幻化守衛格擋；惡語術需要褻瀆地面覆蓋。', source: '稀有盾牌 · 暴充 · 苦澀異端' }
     };
     const STATE_CARD_EN = {
       shock: { eyebrow: 'ENEMY DAMAGE TAKEN', name: 'Shock', value: 'up to +50%', detail: 'Shock is an enemy Damage Taken layer. Stormcharger\'s Lightning ailment effect and actual Shock coverage are tracked separately.', source: 'Stormcharger · Lightning ailment' },
-      'stormblast-state': { eyebrow: 'ENEMY DAMAGE TAKEN', name: 'Stormblast Mine', value: '5.65% raw / mine · cap 150%', detail: 'The raw base is 3%; the Lv2 / 23Q gem card rounds this to about 4% before Ashes. Ashes of the Stars adds 30 quality, so effective quality is 53Q. Formula: 3% + 53 × 0.05% = about 5.65% increased Damage Taken per mine. Matua Tupuna\'s general non-Curse aura effect +20% brings that to about 6.78% per mine; its minion-only 20% does not. The 150% cap is unchanged, and Minefield controls delivery while coverage depends on mines near the enemy.', source: 'Stormblast Mine · Ashes of the Stars · Matua Tupuna · Minefield Support' },
+      'stormblast-state': { eyebrow: 'ENEMY DAMAGE TAKEN', name: 'Stormblast Mine', value: '53Q · full-aura model: 18 mines ≈ 122% · cap 150%', detail: 'The raw base is 3%; the Lv2 / 23Q gem card rounds this to about 4% before Ashes. Ashes of the Stars adds 30 quality, so effective quality is 53Q. This model includes the current full aura effect; eighteen fully effective mines are about 122%, while 150% is the skill cap rather than an automatic result. Minefield controls delivery and real coverage depends on mines near the enemy.', source: 'Stormblast Mine · Ashes of the Stars · Matua Tupuna · Minefield Support' },
       'damage-routing': { eyebrow: 'PLAYER DEFENSE · TARGET', name: 'Damage Routing', value: 'Cold / Lightning → Fire / Chaos', detail: 'The target configuration uses a Divine Flesh shield and Rakiata Timeless Jewel to shift elemental damage taken. This is Damage taken as, not damage conversion. Mark it as a target until the snapshot matches.', source: 'Target shield: Divine Flesh · Timeless Jewel: Rakiata' },
       'fire-chaos-res': { eyebrow: 'PLAYER DEFENSE', name: 'Fire / Chaos Resistance', value: 'Stack Fire and Chaos', detail: 'Ashes raises Purity of Fire to 50Q effective quality, while Matua supplies 20% general non-Curse aura effect; rings and the 12-passive cluster fill the remaining resistance.', source: 'Purity of Fire · Ashes · Matua · rings · 12-passive cluster' },
       'physical-hits': { eyebrow: 'PLAYER DEFENSE', name: 'Physical Hits', value: 'Determination + armour', detail: 'Physical damage is not routed away; Immortal Flesh subtracts 48 Physical Damage from Attack Hits and grants conditional +40% Armour, while Determination handles the remaining hit layer.', source: 'Determination · Immortal Flesh · optional Watcher\'s Eye' },
@@ -3694,7 +3727,7 @@
       'luminary-transfer': { eyebrow: 'PARTY DEFENSE', name: 'Luminary Damage Transfer', value: '20% final hit → Mercenary', detail: 'After player mitigation, part of the final hit is paid from Mercenary Life; it is not armour or resistance.', source: 'Loyal Bodyguard · Luminary Ascendancy' },
       'minion-resistances': { eyebrow: 'GUARDIAN SURVIVAL', name: 'Minion Resistances', value: 'Base resistance + aura and jewel layers', detail: 'AG adds Purity of Fire, Ghastly Eyes and passive-tree minion resistance. Raise Spectre\'s +30% applies only to Spectres and is excluded from AG.', source: 'AG base · Purity of Fire · Ashes · Matua · Ghastly Eye · passive tree' },
       'guardian-physical': { eyebrow: 'GUARDIAN SURVIVAL', name: 'Physical Damage Taken by the Guardian', value: 'Abyssus downside + Determination', detail: 'Abyssus increases AG Physical Damage taken; Determination and other physical layers offset it.', source: 'Abyssus · Determination' },
-      'guardian-block': { eyebrow: 'GUARDIAN SURVIVAL', name: 'Block and Recovery', value: '64% attack / 40% spell block before other sources', detail: 'Shield base 24% attack block, Fortress Covenant 10% dual block and the passive wheel 30% dual block; the shield also supplies Life on Block and attack-block damage.', source: 'Dragon Charm · Fortress Covenant · passive wheel' },
+      'guardian-block': { eyebrow: 'GUARDIAN SURVIVAL', name: 'Block and Recovery', value: '64% attack / 40% spell block before other sources', detail: 'Shield base 24% attack block, Fortress Covenant 10% dual block and the passive wheel 30% dual block; the shield modifier recovers 5% Life, passive recovery brings the current setup to 7%, and attack block also becomes increased damage.', source: 'Dragon Charm · Fortress Covenant · passive wheel' },
       'guardian-life': { eyebrow: 'GUARDIAN SURVIVAL', name: 'Guardian Life Pool', value: 'gem base Life × Minion Life %', detail: 'AGoS gem level determines base Life, then passive-tree, jewel and other Minion maximum Life modifiers multiply it; Ashes supplies +1 gem level.', source: 'Animate Guardian of Smiting · Ashes · passive tree · jewels' },
       'guardian-leech': { eyebrow: 'GUARDIAN SURVIVAL', name: 'Leech Sustain', value: 'Requires repeated hits', detail: 'Minion leech only sustains AG while it is actually hitting enemies.', source: 'Ghastly Eye · AGoS attack uptime' },
       'guardian-conditional': { eyebrow: 'ENEMY DEBUFF', name: 'Conditional Enemy Debuffs', value: 'Sap ≈ 8% less + Malediction 10% reduced', detail: 'Sap requires an AG block; Malediction requires profane-ground coverage.', source: 'Dragon Charm · Stormcharger · Bitter Heresy' }
@@ -3715,11 +3748,22 @@
 
     function findGem(data, actorKey, id) {
       const actor = data.actors[actorKey] || {};
-      for (const link of actor.gemLinks || []) {
-        for (const group of link.groups || []) {
-          const found = (group.sockets || []).map(socket => socket.gem).find(gem => gem?.id === id);
-          if (found) return found;
+      const linkedGem = owner => {
+        for (const link of data.actors[owner]?.gemLinks || []) {
+          for (const group of link.groups || []) {
+            const found = (group.sockets || []).map(socket => socket.gem).find(gem => gem?.id === id);
+            if (found) return found;
+          }
         }
+        return null;
+      };
+      const linked = linkedGem(actorKey);
+      if (linked) return linked;
+      // AGoS is socketed in the player's body link, but the damage engine labels
+      // it as an AG source so the mechanic cards show the actual owner.
+      if (id === 'agos') {
+        const agosLink = linkedGem('player');
+        if (agosLink) return agosLink;
       }
       return (actor.skills || []).find(skill => skill.id === id);
     }
@@ -3776,10 +3820,10 @@
       'player-body': 'Negative resistance is applied after conversion; it is not a generic More multiplier.',
       'player-weapon': 'Not used as the Guardian\'s weapon; it rewrites the base attack time of non-Spectre minions.',
       'player-shield': 'Player shield; supplies aura effect and minion gem levels.',
-      'player-amulet': 'External source of gem quality and gem levels.',
+      'player-amulet': 'External source of gem quality and gem levels; Hollow Effigy removes the corpse requirement from Offering Skills.',
       'player-gloves': 'Current source of the player\'s minion increased damage.',
       'player-boots': 'Player movement speed and resistance.',
-      'player-belt': 'Player defensive slot.',
+      'player-belt': 'Player defensive slot; Immortal Flesh also supplies -18% to all Elemental Resistances in this snapshot.',
       'player-jewel-5': 'Timeless Jewel transformed rolls are not exposed by poe.ninja; user-confirmed: two acquired 10% reduced Extra Damage from Critical Strikes passives (20% total).',
       'player-ring-1': 'Player life and resistance.',
       'player-ring-2': 'Player negative Lightning Resistance and Chaos Resistance.',
@@ -3796,10 +3840,12 @@
       'merc-amulet': 'Second Mercenary unique candidate; nearby allies\' hit damage is Lucky.'
     };
     const ROLE_TEXT_ZH = {
+      'player-amulet': '技能品質與等級的外部來源；Hollow Effigy 塗油讓奉獻技能不需要屍體。',
       'player-body': '轉換完成後才套用負電；它不是一般的更多傷害倍率。',
       'player-weapon': '不是給守衛拿來打；它改寫非幽魂召喚物的基礎攻擊時間。',
       'player-shield': '玩家盾牌；提供光環效果與召喚物寶石等級。',
       'player-gloves': '目前玩家手套的召喚物增加傷害來源。',
+      'player-belt': '玩家防禦與負元素抗性來源；目前快照的永生提供 −18% 全元素抗性。',
       'player-jewel-5': '永恆珠寶的變形詞綴不會由 poe.ninja 完整提供；使用者確認已取得兩個 10% 減少暴擊額外傷害詞綴，合計 20%。',
       'guardian-helm': '提供物理點傷、暴擊加成，也帶來承受物理傷害的代價。',
       'guardian-body': '提供暴擊步驟需要的基礎暴率、暴擊加成與攻擊速度。',
@@ -4006,6 +4052,7 @@
       const gem = record?.gem;
       if (!gem) return '';
       const displayName = sourceDisplayName(gem);
+      const mechanicOwner = gem.id === 'agos' ? 'guardian' : (record.actorKey || 'player');
       const fallback = displayName.slice(0, 1).toUpperCase();
       const emphasis = new Set(gem.emphasis || []);
       const level = gemDisplayLevel(gem);
@@ -4015,7 +4062,7 @@
       const socketColor = record.socketColor || '';
       const socketClass = socketColor ? ` socket-${esc(socketColor)}` : '';
       const socketShell = `<span class="gem-socket-shell" aria-hidden="true"></span><span class="gem-socket-core">${gem.icon ? `<img src="${esc(gem.icon)}" alt="">` : `<span class="gem-node-fallback">${esc(fallback)}</span>`}</span>`;
-      return `<div class="gem-node${socketClass}" data-actor="${esc(record.actorKey || 'player')}" data-target-type="gem" data-skill-id="${esc(gem.id)}" data-socket="${esc(socketColor)}" tabindex="0" aria-label="${esc(displayName)}"><span class="gem-node-art" aria-hidden="true">${socketShell}</span><span class="gem-node-copy"><span class="gem-node-name">${esc(displayName)}</span><span class="gem-node-meta"><span><span class="gem-stat${levelClass}">${esc(level)}</span>/<span class="gem-stat${qualityClass}">${esc(quality)}Q</span> · ${esc(sourceKindLabel(gem))}</span></span></span>${createSourceTooltip(gem, 'gem')}</div>`;
+      return `<div class="gem-node${socketClass}" data-actor="${esc(mechanicOwner)}" data-target-type="gem" data-skill-id="${esc(gem.id)}" data-socket="${esc(socketColor)}" tabindex="0" aria-label="${esc(displayName)}"><span class="gem-node-art" aria-hidden="true">${socketShell}</span><span class="gem-node-copy"><span class="gem-node-name">${esc(displayName)}</span><span class="gem-node-meta"><span><span class="gem-stat${levelClass}">${esc(level)}</span>/<span class="gem-stat${qualityClass}">${esc(quality)}Q</span> · ${esc(sourceKindLabel(gem))}</span></span></span>${createSourceTooltip(gem, 'gem')}</div>`;
     }
 
     function buildGemIndex(data, actorKey = presentationFor(data).gemOwner || presentationFor(data).actorOrder?.[0] || 'player') {
@@ -4437,6 +4484,11 @@
       updateDetailToggle(document.getElementById('step-detail'), 'damage');
       const buildSource = document.getElementById('build-source-link');
       if (buildSource && !buildSource.hidden) buildSource.textContent = buildSource.dataset.sourceKind === 'pob' ? tr('pob') : tr('buildSnapshot');
+      const snapshotNote = document.getElementById('snapshot-note');
+      if (snapshotNote) {
+        const updatedUtc = data?.snapshot?.updatedUtc;
+        snapshotNote.textContent = updatedUtc ? `${tr('snapshotLabel')} ${String(updatedUtc).slice(0, 10)}` : '';
+      }
       if (data?.snapshot?.buildName) document.title = `${data.snapshot.buildName} — ${tr('equipment')}`;
       updateEngineContext();
     }
@@ -4663,7 +4715,7 @@
       }
       const source = ledgerSource(target, data);
       const name = id === 'agos' && keys.includes('conversion')
-        ? (currentLanguage === 'en' ? 'Smite of Divine Judgement' : 'Smite 聖判')
+        ? (currentLanguage === 'en' ? 'Smite of Divine Judgement' : '雷鳴重擊．聖判')
         : sourceDisplayName(source) || id;
       return { name, value: focusModText(source, type, keys, id), icon: source?.icon || null, mark: actorClass(actor), owner: actorClass(actor) };
     }
@@ -4769,7 +4821,7 @@
         if (!source) return '';
         const label = type === 'item' ? (currentLanguage === 'en' ? 'ITEM' : '物品') : type === 'gem' ? (currentLanguage === 'en' ? 'GEM' : '寶石') : (currentLanguage === 'en' ? 'SKILL' : '技能');
         const displayName = id === 'agos' && keys.includes('conversion')
-          ? (currentLanguage === 'en' ? 'Smite of Divine Judgement' : 'Smite 聖判')
+          ? (currentLanguage === 'en' ? 'Smite of Divine Judgement' : '雷鳴重擊．聖判')
           : sourceDisplayName(source);
         const mechanicTag = id === 'player-shield' && keys.includes('divine-flesh')
           ? (currentLanguage === 'en' ? 'Vestigial · Divine Flesh' : 'Vestigial · 神聖血肉')
