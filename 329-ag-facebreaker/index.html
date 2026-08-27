@@ -486,6 +486,10 @@
     .actor-tag.mercenary { background: var(--unique); color: var(--bg-deep); }
     .actor-tag.enemy { background: var(--red); color: var(--bg-deep); }
     .ledger-value { min-width: 0; color: var(--emerald); font: 10px/1.35 ui-monospace, SFMono-Regular, Consolas, monospace; text-align: right; overflow-wrap: anywhere; }
+    .ledger-value-formula { align-self: stretch; padding: 3px 0; color: var(--faint); font-size: 9px; line-height: 1.45; text-align: left; }
+    .ledger-formula-line, .ledger-formula-result, .ledger-formula-note { display: block; }
+    .ledger-formula-result { margin-top: 3px; color: var(--emerald); font-weight: 700; }
+    .ledger-formula-note { margin-top: 5px; color: var(--faint); font: 8px/1.35 var(--font-ui); }
     .ledger-jewel-stack { display: flex; align-items: center; gap: 3px; }
     .ledger-jewel-chip { position: relative; z-index: 1; display: grid; place-items: center; width: 25px; height: 28px; border: 0; background: transparent; cursor: help; }
     .ledger-jewel-chip:hover, .ledger-jewel-chip:focus-visible { z-index: 10000; outline: none; }
@@ -3200,12 +3204,12 @@
     };
     const MERC_PLANNED_COPY = {
       'rallying-cry': {
-        en: 'Warcry buff → adds weapon damage to AG',
-        zh: '原地施放戰吼 → 把傭兵武器傷害加到幻化守衛攻擊'
+        en: 'Warcry buff: adds weapon damage to AG',
+        zh: '戰吼: 把傭兵武器傷害加到幻化守衛攻擊'
       },
       incite: {
-        en: 'Warcry utility → supplies Frenzy Charges to allies',
-        zh: '原地施放戰吼 → 提供友軍狂怒球'
+        en: 'incite: supplies Frenzy Charges to allies',
+        zh: '煽動: 提供友軍狂怒球'
       }
     };
     const SPECTRE_SUPPORT = [
@@ -3347,7 +3351,10 @@
           'player:item:player-jewel-7': { zh: '18–26 物理', en: '18–26 Physical' },
           'guardian:item:guardian-helm': { zh: '40–60 物理', en: '40–60 Physical' },
           'player:gem:carrion-golem': { zh: '29–43 物理', en: '29–43 Physical' },
-          'merc:skill:rallying-cry': { zh: '414–691 物理', en: '414–691 Physical' },
+          'merc:skill:rallying-cry': {
+            zh: '<span class="ledger-formula-line">公式（30 Power＝傳奇敵人 20＋玩家 5＋5 隻召喚物合計 5）</span><span class="ledger-formula-line">456–762 × [⌊30 ÷ 5⌋ × 4%]</span><span class="ledger-formula-line">× [1＋(22%＋30%＋20%＋17%)]（增益效果直接相加）</span><span class="ledger-formula-line">＝456–762 × 24% × 1.89</span><span class="ledger-formula-result">≈ 207–346 額外物理傷害</span><span class="ledger-formula-note">前提：傭兵的激勵戰吼給玩家召喚物吃不到 100% more 點傷。</span>',
+            en: '<span class="ledger-formula-line">Formula (30 Power = unique enemy 20 + player 5 + five minions total 5)</span><span class="ledger-formula-line">456–762 × [⌊30 ÷ 5⌋ × 4%]</span><span class="ledger-formula-line">× [1 + (22% + 30% + 20% + 17%)] (added directly)</span><span class="ledger-formula-line">= 456–762 × 24% × 1.89</span><span class="ledger-formula-result">≈ 207–346 additional Physical Damage</span><span class="ledger-formula-note">Assumption: the Mercenary Rallying Cry reaches player-owned minions without the 100% more Effect clause.</span>'
+          },
           'guardian:item:guardian-gloves': { zh: '984% 更多（×10.84）', en: '984% more (×10.84)' },
           'merc:item:merc-weapon': { zh: '456–762 武器物理基礎', en: '456–762 weapon Physical base' },
           'merc:item:merc-helm': { zh: '22% 戰吼增益效果', en: '22% Warcry Buff Effect' },
@@ -4247,7 +4254,7 @@
         return mods.length ? mods.map(mod => `<span class="focus-mod-line">${esc(mod.text)}</span>`).join('') : (currentLanguage === 'en' ? 'No matching snapshot modifier' : '目前快照沒有對應詞綴');
       }
       if (type === 'gem' || type === 'skill') {
-        if (id === 'rallying-cry') return currentLanguage === 'en' ? '<mark>414–691 additional Physical Damage to AG</mark>' : '<mark>給 AG 約 414–691 額外物理傷害</mark>';
+        if (id === 'rallying-cry') return currentLanguage === 'en' ? '<mark>≈207–346 additional Physical Damage to player-owned AG (normal buff; test pending)</mark>' : '<mark>給玩家的 AG 約 207–346 額外物理傷害（普通 buff；待實測）</mark>';
         if (id === 'agos' && keys.includes('conversion')) return currentLanguage === 'en' ? '<mark>50% of Physical Damage Converted to Lightning Damage</mark>' : '<mark>50% 物理傷害轉換為閃電傷害</mark>';
         if (id === 'agos' && keys.includes('base-crit')) return currentLanguage === 'en' ? '<mark>5% base Critical Strike Chance</mark>' : '<mark>5% 基礎暴擊率</mark>';
         if (id === 'agos' && keys.includes('attack-rate')) return currentLanguage === 'en' ? '<mark>Non-Spectre Minion Base Attack Time = Main Hand Weapon</mark>' : '<mark>非幽魂召喚物基礎攻擊時間＝主手武器</mark>';
@@ -4262,7 +4269,7 @@
         if (focused.length) return focused.map(entry => `<span class="focus-mod-line">${esc(entry.text)}</span>`).join('');
         return currentLanguage === 'en' ? 'Linked gem modifier' : '連線寶石詞綴';
       }
-      if (id === 'rallying-cry') return currentLanguage === 'en' ? '414–691 additional Physical Damage to AG' : '給 AG 約 414–691 額外物理傷害';
+      if (id === 'rallying-cry') return currentLanguage === 'en' ? '≈207–346 additional Physical Damage to player-owned AG (normal buff; test pending)' : '給玩家的 AG 約 207–346 額外物理傷害（普通 buff；待實測）';
       if (id === 'agos' && keys.includes('conversion')) {
         return currentLanguage === 'en' ? '50% of Physical Damage Converted to Lightning Damage' : '50% 物理傷害轉換為閃電傷害';
       }
@@ -4271,8 +4278,8 @@
 
     function rallyingCryFormula() {
       return currentLanguage === 'en'
-        ? 'Uul-Netol\'s Kiss: 456–762 physical weapon damage\nPower target: Pinnacle boss 20 + nearby allied actors 10 = 30 Power (the third Spectre closes the previous 29 → 30 breakpoint)\nRallying Cry at 30 Power: floor(30 / 5) × 4% × 2 = 48% base minion effect\nWarcry Buff Effect: 22% helm + 30% body + 20% Natural Authority + 17% boots = 89%\n= 48% × 1.89 = 90.72% weapon damage → 414–691 additional Physical Damage to AG\nPerquil\'s Toe: Lucky hit damage is a separate final-hit layer; AG must remain nearby\nUber option: Pinnacle Boss boot implicit 29% → 96.48% = 440–735'
-        : '烏爾尼多之吻：456–762 物理武器傷害\n戰吼威力目標：巔峰頭目 20＋附近友方單位 10＝30 點威力（第三隻幽魂把原本 29 推過 30 門檻）\n30 點威力的激勵戰吼：向下取整（30 ÷ 5）× 4% × 2＝48% 召喚物基礎效果\n戰吼增益效果：頭 22%＋胸 30%＋自然權威 20%＋傭兵鞋 17%＝89%\n＝48% × 1.89＝90.72% 武器傷害 → 給幻化守衛約 414–691 點額外物理傷害\n珀奎爾的指頭：幸運擊中傷害是獨立的最終擊中層；幻化守衛必須在附近\n終極配置：巔峰頭目鞋詞 29% → 96.48%＝440–735';
+        ? 'Uul-Netol\'s Kiss: 456–762 physical weapon damage\n30 Power = unique enemy 20 + player 5 + five minions total 5\nFormula: 456–762 × [floor(30 / 5) × 4%] × [1 + (22% + 30% + 20% + 17%)]\nWarcry Buff Effect is added directly: 22% + 30% + 20% + 17% = 89%\n= 456–762 × 24% × 1.89 ≈ 207–346 additional Physical Damage\nAssumption: the Mercenary Rallying Cry reaches player-owned minions without the 100% more Effect clause.'
+        : '烏爾尼多之吻：456–762 物理武器傷害\n30 Power＝傳奇敵人 20＋玩家 5＋5 隻召喚物合計 5\n公式：456–762 × [⌊30 ÷ 5⌋ × 4%] × [1＋(22%＋30%＋20%＋17%)]\n戰吼增益效果直接相加：22%＋30%＋20%＋17%＝89%\n＝456–762 × 24% × 1.89 ≈ 207–346 額外物理傷害\n前提：傭兵的激勵戰吼給玩家召喚物吃不到 100% more 點傷。';
     }
 
     function focusExpanded(source, type, keys, id) {
@@ -4755,7 +4762,8 @@
       const icon = display.icon
         ? `<img src="${esc(display.icon)}" alt="" loading="lazy">`
         : `<span class="ledger-source-fallback">${esc(display.mark)}</span>`;
-      return `<div class="ledger-row summary"><div class="ledger-source">${icon}<span class="ledger-source-copy"><span class="ledger-name">${esc(label[currentLanguage] || label.en)}</span>${tag}</span></div><div class="ledger-value">${value || '—'}</div></div>`;
+      const valueClass = key === 'merc:skill:rallying-cry' ? 'ledger-value ledger-value-formula' : 'ledger-value';
+      return `<div class="ledger-row summary"><div class="ledger-source">${icon}<span class="ledger-source-copy"><span class="ledger-name">${esc(label[currentLanguage] || label.en)}</span>${tag}</span></div><div class="${valueClass}">${value || '—'}</div></div>`;
     }
 
     function renderLedgerCompactJewelRow(step, group, targets, data) {
