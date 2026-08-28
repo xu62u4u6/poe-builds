@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Bitter:wght@500;600;700&display=swap" rel="stylesheet">
   <title>Facebreaker AGoS Doryani Luminary — Equipment</title>
   <style>
+    /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 */
     /* A restrained character-page treatment: coolgrey surfaces, emerald action colour, item rarity only where it carries meaning. */
     :root {
       --bg: oklch(0.15 0.018 218);
@@ -381,10 +382,10 @@
     .aux-card-detail-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
     .aux-card-detail-title { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
     .aux-card-detail-head h4 { margin: 0; color: var(--text); font: 600 18px/1.1 var(--font-display); }
-    .aux-card-detail-body { display: grid; grid-template-columns: minmax(250px, .62fr) minmax(0, 1.38fr); margin: 10px -15px -18px; border-top: 1px solid var(--line-soft); }
+    .aux-card-detail-body { display: grid; grid-template-columns: minmax(250px, .62fr) minmax(0, 1.38fr); margin: 0; border-top: 0; }
     .aux-mechanic-column { min-width: 0; padding: 18px; }
-    .aux-source-column { min-width: 0; padding: 6px 0 18px; border-left: 1px solid var(--line-soft); }
-    .aux-source-column .focus-row { grid-template-columns: 1fr; }
+    .engine-source-column { min-width: 0; padding: 6px 0 18px; border-left: 1px solid var(--line-soft); }
+    .engine-source-column .focus-row { grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); }
     .mechanic-breakdown { display: grid; gap: 13px; }
     .mechanic-outcome { display: grid; align-content: center; min-height: 74px; padding-bottom: 13px; border-bottom: 1px solid var(--line-soft); }
     .mechanic-outcome span { color: var(--faint); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; }
@@ -394,9 +395,14 @@
     .mechanic-fact { display: grid; grid-template-columns: 94px minmax(0, 1fr); gap: 9px; padding: 7px 3px; border-bottom: 1px solid var(--line-soft); }
     .mechanic-fact dt { color: var(--faint); font-size: 8px; letter-spacing: .07em; text-transform: uppercase; }
     .mechanic-fact dd { margin: 0; color: var(--text); font-size: 10px; line-height: 1.35; }
-    .aux-source-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 12px 15px 0; }
-    .aux-source-head strong { color: var(--subdued); font: 600 11px/1 var(--font-display); }
-    .aux-source-head span { color: var(--faint); font-size: 8px; }
+    .engine-source-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 12px 15px 0; }
+    .engine-source-head strong { color: var(--subdued); font: 600 11px/1 var(--font-display); }
+    .engine-source-head span { color: var(--faint); font-size: 8px; }
+    .engine-source-groups { display: grid; gap: 16px; padding: 10px 15px 0; }
+    .engine-source-group { min-width: 0; }
+    .engine-source-group + .engine-source-group { padding-top: 2px; border-top: 1px solid var(--line-soft); }
+    .engine-source-group-title { margin: 0; padding: 0 0 6px; border-bottom: 1px solid var(--line); color: var(--faint); font-size: 8px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .engine-source-list { padding: 8px 0 0; border-top: 0; }
     .damage-workbench { display: grid; }
     .damage-workbench > #step-rail > .engine-rail { border-bottom: 0; }
     .step-detail { display: block; width: 100%; height: clamp(430px, 56vh, 610px); margin: 2px 0 8px; overflow-y: auto; overscroll-behavior: contain; border-top: 1px solid var(--emerald-dim); border-bottom: 1px solid var(--line-soft); background: color-mix(in oklch, var(--surface) 28%, transparent); scrollbar-gutter: stable; }
@@ -494,12 +500,15 @@
     .ledger-base-columns { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: 18px; align-items: start; }
     .ledger-base-columns .ledger-column { min-width: 0; }
     .focus-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 6px; padding: 10px 15px 14px; border-top: 1px solid var(--line-soft); }
+    .focus-row.engine-source-list { border-top: 0; }
     .focus-card { position: relative; display: grid; grid-template-columns: 32px minmax(0, 1fr); align-items: start; gap: 8px; min-width: 0; border: 0; border-top: 1px solid var(--line-soft); border-radius: 0; background: transparent; padding: 8px 4px; cursor: help; text-align: left; transition: border-color 120ms, background 120ms, box-shadow 120ms; }
     .focus-card:hover, .focus-card:focus-visible { border-top-color: var(--emerald-dim); background: color-mix(in oklch, var(--surface-2) 42%, transparent); outline: none; }
     .focus-card img { width: 32px; height: 32px; object-fit: contain; flex: 0 0 auto; }
     .focus-card-fallback { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--line); color: var(--emerald); font: 600 12px var(--font-display); flex: 0 0 auto; }
     .focus-card-copy { min-width: 0; }
     .focus-card-eyebrow { color: var(--faint); font-size: 8px; letter-spacing: .1em; }
+    .source-card.primary { border-top-color: var(--emerald); }
+    .source-card.context { opacity: .66; }
     .focus-card-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text); font: 600 11px/1.2 var(--font-display); }
     .focus-card-tag { display: inline-block; margin-left: 6px; color: var(--unique); font: 600 8px/1 var(--font-ui); letter-spacing: .04em; text-transform: uppercase; }
     .focus-card-meta { margin-top: 2px; color: var(--emerald); font-size: 10px; line-height: 1.25; }
@@ -546,9 +555,11 @@
       .step-detail { height: auto; max-height: none; margin-top: 4px; overflow: visible; }
       .step-detail-inner { grid-template-columns: 1fr; }
       .step-detail-content { position: static; }
-      .step-ledger { padding-top: 4px; border-left: 0; }
+      .step-ledger { padding-top: 4px; }
       .aux-card-detail { height: auto; max-height: none; overflow: visible; }
       .mechanic-dock { display: none; }
+      .item-tooltip { position: fixed; left: 8px; right: 8px; bottom: 8px; top: auto !important; width: auto; transform: translateY(4px) !important; }
+      .item:hover .item-tooltip, .focus-card:hover > .item-tooltip, .focus-card:focus-visible > .item-tooltip, .ledger-source:hover > .item-tooltip, .ledger-source:focus-within > .item-tooltip { transform: translateY(0) !important; }
     }
     @media (max-width: 720px) {
       .spectre-support-list { grid-template-columns: 1fr; }
@@ -582,7 +593,7 @@
       .ledger-source:hover > .item-tooltip, .ledger-source:focus-within > .item-tooltip, .gem-node:hover .item-tooltip, .gem-node:focus-visible .item-tooltip, .spectre-support-node:hover .item-tooltip, .spectre-support-node:focus-visible .item-tooltip { transform: translateY(0); }
       .mechanic-breakdown { grid-template-columns: 1fr; }
       .aux-card-detail-body { grid-template-columns: 1fr; }
-      .aux-source-column { border-left: 0; border-top: 1px solid var(--line-soft); }
+      .engine-source-column { border-left: 0; border-top: 1px solid var(--line-soft); }
       .mechanic-fact { grid-template-columns: 82px minmax(0, 1fr); }
       .ledger-head { display: none; }
       .ledger-row { grid-template-columns: minmax(120px, 1fr) minmax(125px, 1.15fr); gap: 6px; }
@@ -4560,9 +4571,8 @@
       const detail = document.getElementById(`${tabId}-card-detail`);
       if (!detail) return;
       const status = engineFor(tabId, activeData).status?.[card.id] || AUX_STATUS[card.id] || { kind: 'current', zh: '目前', en: 'Current' };
-      detail.innerHTML = `<div class="engine-detail-head aux-card-detail-head"><div class="engine-detail-title aux-card-detail-title"><h4>${esc(copy.number)} · ${esc(copy.title)}</h4><span class="aux-status ${esc(status.kind)}">${esc(status[currentLanguage])}</span></div><button class="detail-toggle" type="button" data-detail-toggle="${esc(tabId)}" aria-expanded="true" aria-controls="${tabId}-card-detail-body" aria-label="${esc(tr('collapseDetail'))}"><span class="detail-toggle-icon" aria-hidden="true">−</span><span class="detail-toggle-label">${esc(tr('collapseDetail'))}</span></button></div><div class="engine-detail-body aux-card-detail-body" id="${tabId}-card-detail-body"><div class="engine-detail-column aux-mechanic-column">${renderMechanicBreakdown(card, copy, tabId, activeData)}</div><div class="engine-detail-column aux-source-column"><div class="aux-source-head"><strong>${esc(currentLanguage === 'en' ? 'Items, skills and sources' : '物品、技能與來源')}</strong><span>${esc(currentLanguage === 'en' ? 'Hover or focus a source to inspect every modifier' : '將游標移到來源上或聚焦來源，以查看完整詞綴')}</span></div><div class="focus-row" id="${tabId}-focus-row"></div></div></div>`;
+      detail.innerHTML = `<div class="engine-detail-head aux-card-detail-head"><div class="engine-detail-title aux-card-detail-title"><h4>${esc(copy.number)} · ${esc(copy.title)}</h4><span class="aux-status ${esc(status.kind)}">${esc(status[currentLanguage])}</span></div><button class="detail-toggle" type="button" data-detail-toggle="${esc(tabId)}" aria-expanded="true" aria-controls="${tabId}-card-detail-body" aria-label="${esc(tr('collapseDetail'))}"><span class="detail-toggle-icon" aria-hidden="true">−</span><span class="detail-toggle-label">${esc(tr('collapseDetail'))}</span></button></div><div class="engine-detail-body aux-card-detail-body" id="${tabId}-card-detail-body"><div class="engine-detail-column aux-mechanic-column">${renderMechanicBreakdown(card, copy, tabId, activeData)}</div><div class="engine-detail-column step-ledger aux-source-ledger">${renderAuxiliaryLedger(card, activeData)}</div></div>`;
       bindDetailToggle(detail, tabId);
-      renderFocusCards(card, activeData, `${tabId}-focus-row`, false);
       if (activeEngineTab === tabId) applyStepTargets(card);
       renderMechanicDock();
     }
@@ -4835,11 +4845,53 @@
       return { name, value: focusModText(source, type, keys, id), icon: source?.icon || null, mark: actorClass(actor), owner: actorClass(actor) };
     }
 
-    function ledgerActorTag(actor) {
+    function sourceActorTag(actor) {
       if (actor === 'guardian') return { label: 'AG', className: 'ag' };
       if (actor === 'merc') return { label: currentLanguage === 'en' ? 'Mercenary' : '傭兵', className: 'mercenary' };
-      if (actor === 'state') return { label: 'Enemy', className: 'enemy' };
       return null;
+    }
+
+    function renderSourceActorTag(actor) {
+      const actorTag = sourceActorTag(actor);
+      return actorTag ? `<span class="actor-tag ${esc(actorTag.className)}">${esc(actorTag.label)}</span>` : '';
+    }
+
+    function renderSourceCard(target, data, options = {}) {
+      const [actor, type, id, keys = []] = target;
+      const emphasis = options.emphasis || target[4] || 'source';
+      const source = sourceForTarget(target, data);
+
+      if (type === 'state') {
+        const card = localizedStateCard(id);
+        if (!card) return '';
+        const mark = ({ shock: 'S', 'stormblast-state': 'M', 'damage-routing': 'R', 'fire-chaos-res': 'R', 'physical-hits': 'P', 'critical-reduction': 'C', 'ailment-avoidance': 'A', 'conditional-protection': 'C', taunt: 'T', malediction: 'X', 'luminary-transfer': 'L', 'minion-resistances': 'R', 'guardian-physical': 'P', 'guardian-block': 'B', 'guardian-leech': 'L', 'guardian-conditional': 'C', 'guardian-life': 'H' })[id] || '•';
+        const stateIconSource = id === 'stormblast-state' ? findGem(data, 'player', 'stormblast') : null;
+        const value = options.value !== undefined ? options.value : card.value;
+        return `<article class="focus-card source-card state-card ${esc(emphasis)}" tabindex="0" data-source-card="${esc(stepTargetKey(target))}"><div>${focusIcon(stateIconSource, actor, mark)}</div><div class="focus-card-copy"><div class="focus-card-eyebrow">${esc(card.eyebrow)}</div><div class="focus-card-name">${esc(card.name)}</div><div class="focus-card-meta"><mark>${esc(value || '—')}</mark></div><div class="focus-card-detail">${esc(card.detail)}</div><div class="focus-card-source">${esc(card.source)}</div></div>${createSourceTooltip(card, 'state', ['detail', 'source'])}</article>`;
+      }
+
+      if (type === 'spectre') {
+        if (!source) return '';
+        const detail = source[currentLanguage] || source.en;
+        const value = options.value !== undefined ? options.value : (currentLanguage === 'en' ? 'support source' : '支援來源');
+        return `<article class="focus-card source-card state-card ${esc(emphasis)}" tabindex="0" data-source-card="${esc(stepTargetKey(target))}"><div>${focusIcon(null, actor, source.mark)}</div><div class="focus-card-copy"><div class="focus-card-eyebrow">${esc(currentLanguage === 'en' ? 'SPECTRE SUPPORT' : '幽魂支援')}</div><div class="focus-card-name">${esc(spectreDisplayName(source))}</div><div class="focus-card-meta"><mark>${esc(value || '—')}</mark></div><div class="focus-card-detail">${esc(detail)}</div></div>${createSourceTooltip(source, 'spectre', ['effect'])}</article>`;
+      }
+
+      if (!source) return '';
+      const displayName = options.displayName || (id === 'agos' && keys.includes('conversion')
+        ? (currentLanguage === 'en' ? 'Smite of Divine Judgement' : '雷鳴重擊．聖判')
+        : sourceDisplayName(source));
+      const mechanicTag = id === 'player-shield' && keys.includes('divine-flesh')
+        ? (currentLanguage === 'en' ? 'Vestigial · Divine Flesh' : '籠罩 · 神聖血肉')
+        : id === 'player-jewel-5' && keys.includes('tempered-by-war')
+          ? (currentLanguage === 'en' ? 'Rakiata · Tempered by War' : '拉奇亞塔 · 戰爭淬鍊')
+          : '';
+      const value = options.value !== undefined ? options.value : focusModText(source, type, keys, id);
+      const actorTag = renderSourceActorTag(actor);
+      const sourceMeta = type === 'gem' || type === 'skill'
+        ? `<div class="focus-card-source">${esc(gemDisplayLevel(source))}/${esc(source.quality ?? 0)}Q · ${esc(sourceKindLabel(source) || (currentLanguage === 'en' ? 'skill' : '技能'))}</div>`
+        : '';
+      return `<article class="focus-card source-card ${esc(emphasis)}" tabindex="0" data-source-card="${esc(stepTargetKey(target))}"><div>${focusIcon(source, actor)}</div><div class="focus-card-copy"><div class="focus-card-name">${esc(displayName)}${actorTag}${mechanicTag ? `<span class="focus-card-tag">${esc(mechanicTag)}</span>` : ''}</div><div class="focus-card-meta">${value || '—'}</div>${sourceMeta}</div>${createSourceTooltip(source, type, keys)}</article>`;
     }
 
     function renderLedgerRow(step, target, data) {
@@ -4850,8 +4902,7 @@
       const customValue = engineFor('damage', data).ledger?.[step.id]?.values?.[key];
       const value = customValue?.[currentLanguage] || customValue?.en || display.value;
       const emphasis = target[4] || 'source';
-      const actorTag = ledgerActorTag(actor);
-      const tag = actorTag ? `<span class="actor-tag ${esc(actorTag.className)}">${esc(actorTag.label)}</span>` : '';
+      const tag = renderSourceActorTag(actor);
       const icon = display.icon
         ? `<img src="${esc(display.icon)}" alt="" loading="lazy">`
         : `<span class="ledger-source-fallback">${esc(display.mark)}</span>`;
@@ -4865,16 +4916,15 @@
       const display = ledgerDisplay(target, data);
       const customValue = engineFor('damage', data).ledger?.[step.id]?.values?.[key];
       const value = customValue?.[currentLanguage] || customValue?.en || display.value;
-      const actorTag = ledgerActorTag(actor);
-      const tag = actorTag ? `<span class="actor-tag ${esc(actorTag.className)}">${esc(actorTag.label)}</span>` : '';
+      const tag = renderSourceActorTag(actor);
       const icon = display.icon
         ? `<img src="${esc(display.icon)}" alt="" loading="lazy">`
         : `<span class="ledger-source-fallback">${esc(display.mark)}</span>`;
       const valueClass = key === 'merc:skill:rallying-cry' ? 'ledger-value ledger-value-formula' : 'ledger-value';
-      return `<div class="ledger-row summary"><div class="ledger-source">${icon}<span class="ledger-source-copy"><span class="ledger-name">${esc(label[currentLanguage] || label.en)}</span>${tag}</span></div><div class="${valueClass}">${value || '—'}</div></div>`;
+      return `<div class="ledger-row summary"><div class="ledger-source">${icon}<span class="ledger-source-copy"><span class="ledger-name">${esc(localizedText(label))}</span>${tag}</span></div><div class="${valueClass}">${value || '—'}</div></div>`;
     }
 
-    function renderLedgerCompactJewelRow(step, group, targets, data) {
+    function renderLedgerCompactJewelRow(group, targets, data) {
       const compactTargets = (group.compactRefs || []).map(ref => targets.get(ref)).filter(Boolean);
       const chips = compactTargets.map(target => {
         const item = ledgerSource(target, data);
@@ -4887,9 +4937,19 @@
         return `<span class="ledger-jewel-chip" tabindex="0" aria-label="${esc(displayName)}">${image}${createTooltip(item, target[3] || [])}</span>`;
       }).join('');
       if (!chips) return '';
-      const label = group.compactLabel?.[currentLanguage] || group.compactLabel?.en || 'Ghastly Eye ×3';
-      const value = group.compactValue?.[currentLanguage] || group.compactValue?.en || '—';
+      const label = localizedText(group.compactLabel) || 'Ghastly Eye ×3';
+      const value = localizedText(group.compactValue) || '—';
       return `<div class="ledger-row compact"><div class="ledger-source"><span class="ledger-jewel-stack">${chips}</span><span class="ledger-source-copy"><span class="ledger-name">${esc(label)}</span></span></div><div class="ledger-value">${esc(value)}</div></div>`;
+    }
+
+    function renderAuxiliaryLedger(card, data) {
+      const sourceLabel = currentLanguage === 'en' ? 'Source' : '來源';
+      const valueLabel = currentLanguage === 'en' ? 'Contribution / Mechanic' : '貢獻／機制';
+      const groupLabel = currentLanguage === 'en' ? 'Items, skills and sources' : '物品、技能與來源';
+      const targets = (card.targets || []).filter(([, type, id]) => !(type === 'state' && id === card.id));
+      const rows = targets.map(target => renderLedgerRow(card, target, data)).join('');
+      const content = rows || `<p class="ledger-note">${esc(currentLanguage === 'en' ? 'No equipment or gem source is linked to this layer yet.' : '這個層級目前尚未連結到實際裝備或寶石。')}</p>`;
+      return `<section class="ledger-group"><h4 class="ledger-group-title">${esc(groupLabel)}</h4><div class="ledger-head"><span>${esc(sourceLabel)}</span><span>${esc(valueLabel)}</span></div>${content}</section>`;
     }
 
     function renderStepLedger(step, data) {
@@ -4901,50 +4961,27 @@
       const targets = new Map(step.targets.map(target => [stepTargetKey(target), target]));
       const sourceLabel = currentLanguage === 'en' ? 'Source' : '來源';
       const valueLabel = currentLanguage === 'en' ? 'Contribution / Mechanic' : '貢獻／機制';
-      const groupMarkup = ledger.groups.map(group => {
+      const groupMarkup = (ledger.groups || []).map(group => {
         const rows = (group.refs || []).map(ref => targets.get(ref)).filter(Boolean).map(target => renderLedgerRow(step, target, data)).join('');
-        const compactRow = renderLedgerCompactJewelRow(step, group, targets, data);
+        const compactRow = renderLedgerCompactJewelRow(group, targets, data);
         const summaryTarget = group.summary ? targets.get(group.summary.ref) : null;
         const summaryRow = summaryTarget ? renderLedgerSummaryRow(step, summaryTarget, data, group.summary.label) : '';
-        return `<section class="ledger-group"><h4 class="ledger-group-title">${esc(group.title[currentLanguage])}</h4><div class="ledger-head"><span>${esc(sourceLabel)}</span><span>${esc(valueLabel)}</span></div>${rows}${compactRow}${summaryRow}</section>`;
+        return `<section class="ledger-group"><h4 class="ledger-group-title">${esc(localizedText(group.title))}</h4><div class="ledger-head"><span>${esc(sourceLabel)}</span><span>${esc(valueLabel)}</span></div>${rows}${compactRow}${summaryRow}</section>`;
       });
       const groups = step.id === 'base'
         ? `<div class="ledger-base-unarmed">${groupMarkup[1] || ''}</div><div class="ledger-base-columns"><div class="ledger-column">${groupMarkup[0] || ''}</div><div class="ledger-column">${groupMarkup[2] || ''}</div></div>`
         : groupMarkup.join('');
-      const results = (ledger.results || []).map(result => `<div class="ledger-result"><span>${esc(result.label[currentLanguage])}</span><strong>${esc(result.value[currentLanguage])}</strong></div>`).join('');
-      root.innerHTML = `${groups}${results ? `<div class="ledger-results">${results}</div>` : ''}${ledger.note ? `<p class="ledger-note">${esc(ledger.note[currentLanguage])}</p>` : ''}`;
+      const results = (ledger.results || []).map(result => `<div class="ledger-result"><span>${esc(localizedText(result.label))}</span><strong>${esc(localizedText(result.value))}</strong></div>`).join('');
+      root.innerHTML = `${groups}${results ? `<div class="ledger-results">${results}</div>` : ''}${ledger.note ? `<p class="ledger-note">${esc(localizedText(ledger.note))}</p>` : ''}`;
     }
 
     function renderFocusCards(step, data, rowId = 'focus-row', includeStates = true) {
       const row = document.getElementById(rowId);
       if (!row) return;
-      row.innerHTML = step.targets.map(([actor, type, id, keys], index) => {
-        if (type === 'state') {
-          if (!includeStates && id === step.id) return '';
-          const card = localizedStateCard(id);
-          if (!card) return '';
-          const mark = ({ shock: 'S', 'stormblast-state': 'M', 'damage-routing': 'R', 'fire-chaos-res': 'R', 'physical-hits': 'P', 'critical-reduction': 'C', 'ailment-avoidance': 'A', 'conditional-protection': 'C', taunt: 'T', malediction: 'X', 'luminary-transfer': 'L', 'minion-resistances': 'R', 'guardian-physical': 'P', 'guardian-block': 'B', 'guardian-leech': 'L', 'guardian-conditional': 'C', 'guardian-life': 'H' })[id] || '•';
-          const stateIconSource = id === 'stormblast-state' ? findGem(data, 'player', 'stormblast') : null;
-          return `<article class="focus-card state-card" tabindex="0"><div>${focusIcon(stateIconSource, actor, mark)}</div><div class="focus-card-copy"><div class="focus-card-eyebrow">${esc(card.eyebrow)}</div><div class="focus-card-name">${esc(card.name)}</div><div class="focus-card-meta"><mark>${esc(card.value)}</mark></div><div class="focus-card-detail">${esc(card.detail)}</div><div class="focus-card-source">${esc(card.source)}</div></div>${createSourceTooltip(card, 'state', ['detail', 'source'])}</article>`;
-        }
-        if (type === 'spectre') {
-          const spectre = presentationFor(data).sourceCatalog?.spectres?.find(entry => entry.id === id) || SPECTRE_SUPPORT.find(entry => entry.id === id);
-          if (!spectre) return '';
-          const detail = spectre[currentLanguage] || spectre.en;
-          return `<article class="focus-card state-card" tabindex="0"><div>${focusIcon(null, actor, spectre.mark)}</div><div class="focus-card-copy"><div class="focus-card-eyebrow">${esc(currentLanguage === 'en' ? 'SPECTRE SUPPORT' : '幽魂支援')}</div><div class="focus-card-name">${esc(spectreDisplayName(spectre))}</div><div class="focus-card-meta"><mark>${esc(currentLanguage === 'en' ? 'support source' : '支援來源')}</mark></div><div class="focus-card-detail">${esc(detail)}</div></div>${createSourceTooltip(spectre, 'spectre', ['effect'])}</article>`;
-        }
-        const source = type === 'item' ? findItem(data, actor, id) : type === 'gem' ? findGem(data, actor, id) : data.actors[actor].skills.find(skill => skill.id === id);
-        if (!source) return '';
-        const label = type === 'item' ? (currentLanguage === 'en' ? 'ITEM' : '物品') : type === 'gem' ? (currentLanguage === 'en' ? 'GEM' : '寶石') : (currentLanguage === 'en' ? 'SKILL' : '技能');
-        const displayName = id === 'agos' && keys.includes('conversion')
-          ? (currentLanguage === 'en' ? 'Smite of Divine Judgement' : '雷鳴重擊．聖判')
-          : sourceDisplayName(source);
-        const mechanicTag = id === 'player-shield' && keys.includes('divine-flesh')
-          ? (currentLanguage === 'en' ? 'Vestigial · Divine Flesh' : '籠罩 · 神聖血肉')
-          : id === 'player-jewel-5' && keys.includes('tempered-by-war')
-            ? (currentLanguage === 'en' ? 'Rakiata · Tempered by War' : '拉奇亞塔 · 戰爭淬鍊')
-            : '';
-        return `<article class="focus-card" tabindex="0"><div>${focusIcon(source, actor)}</div><div class="focus-card-copy"><div class="focus-card-eyebrow">${esc(actorClass(actor))} · ${label}</div><div class="focus-card-name">${esc(displayName)}${mechanicTag ? `<span class="focus-card-tag">${esc(mechanicTag)}</span>` : ''}</div><div class="focus-card-meta">${focusModText(source, type, keys, id)}</div>${type === 'gem' || type === 'skill' ? `<div class="focus-card-source">${esc(gemDisplayLevel(source))}/${esc(source.quality ?? 0)}Q · ${esc(sourceKindLabel(source) || 'skill')}</div>` : ''}</div>${createSourceTooltip(source, type, keys)}</article>`;
+      row.innerHTML = step.targets.map(target => {
+        const [, type, id] = target;
+        if (!includeStates && type === 'state' && id === step.id) return '';
+        return renderSourceCard(target, data, { emphasis: target[4] || 'source' });
       }).join('');
       if (!row.innerHTML.trim()) row.innerHTML = `<div class="focus-card-detail">${esc(currentLanguage === 'en' ? 'No equipment or gem source is linked to this planned layer yet.' : '這個規劃層目前尚未連結到實際裝備或寶石。')}</div>`;
     }
