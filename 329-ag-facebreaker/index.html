@@ -63,6 +63,9 @@
 
     .page { position: relative; z-index: 1; width: min(1460px, calc(100% - 28px)); margin: 0 auto; padding: 8px 0 48px; }
     .character-head { display: flex; align-items: end; justify-content: space-between; gap: 22px; padding: 16px 0 18px; }
+    .character-intro { min-width: 0; }
+    .site-home-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 8px; color: var(--emerald); font-size: 10px; font-weight: 650; letter-spacing: .12em; text-decoration: none; }
+    .site-home-link:hover, .site-home-link:focus-visible { color: var(--text); outline: none; }
     .character-head h1 { margin: 0; color: var(--text); font: 600 clamp(24px, 3vw, 36px)/1.08 var(--font-display); letter-spacing: -.025em; }
     .character-head p { margin: 7px 0 0; color: var(--subdued); max-width: 66ch; }
     .character-controls { display: flex; align-items: center; justify-content: end; gap: 12px; min-width: 0; padding-bottom: 2px; }
@@ -628,7 +631,7 @@
   <main class="page">
     <nav class="mechanic-dock" id="mechanic-dock" aria-label="Mechanic quick navigation"></nav>
     <section class="character-head" id="character">
-      <div><h1>Facebreaker AGoS Doryani Luminary</h1><p data-i18n="buildSubtitle">Animate Guardian of Smiting is the main damage source; the Player and Mercenary are support layers. Boss damage can be extremely high when its conditions are active, but mapping speed is relatively slow.</p></div>
+      <div class="character-intro"><a class="site-home-link" id="site-home-link" href="https://dionic.xyz/" data-i18n="home">DIONIC Home ↗</a><h1>Facebreaker AGoS Doryani Luminary</h1><p data-i18n="buildSubtitle">Animate Guardian of Smiting is the main damage source; the Player and Mercenary are support layers. Boss damage can be extremely high when its conditions are active, but mapping speed is relatively slow.</p></div>
       <div class="character-controls"><a class="build-source-link" id="youtube-link" href="https://www.youtube.com/watch?v=iXaby8KKI6k" target="_blank" rel="noreferrer" data-i18n="youtubeVideo">YouTube Video ↗</a><a class="build-source-link" id="build-source-link" href="#" target="_blank" rel="noreferrer" hidden>Build source ↗</a><span class="snapshot-note" id="snapshot-note"></span><div class="language-switch" role="group" aria-label="Language"><button type="button" data-language="en" aria-pressed="true">EN</button><button type="button" data-language="zh" aria-pressed="false">中文</button></div></div>
     </section>
 
@@ -2913,6 +2916,7 @@
     const HIDDEN_SLOTS = new Set(['ring3', 'trinket']);
     const UI_COPY = {
       en: {
+        home: 'DIONIC Home ↗',
         equipment: 'Equipment',
         jewels: 'Jewels', passiveTree: 'Player · passive tree',
         fullSnapshot: 'Full snapshot · 3 actors', engine: 'Build mechanics', damageEngine: 'Damage Engine', playerDefense: 'Player Defense', guardianSurvival: 'Guardian Survival',
@@ -2934,6 +2938,7 @@
         }
       },
       zh: {
+        home: '返回 DIONIC 首頁 ↗',
         equipment: '裝備',
         jewels: '珠寶', passiveTree: '玩家 · 被動樹',
         fullSnapshot: '完整快照 · 三個角色', engine: '核心機制', damageEngine: '傷害引擎', playerDefense: '玩家防禦', guardianSurvival: '守衛防禦',
@@ -3183,8 +3188,8 @@
       '1 Added Passive Skill is Rotten Claws': '新增 1 個被動技能：腐鏽之爪',
       '1 Added Passive Skill is Vicious Bite': '新增 1 個被動技能：惡毒之咬',
       '2 Added Passive Skills are Jewel Sockets': '新增 2 個被動技能為珠寶插槽',
-      'Adds 12 Passive Skills': '增加 12 個被動技能',
-      'Adds 8 Passive Skills': '增加 8 個被動技能',
+      'Adds 12 Passive Skills': '增加 12 個天賦節點',
+      'Adds 8 Passive Skills': '增加 8 個天賦節點',
       'Creates Consecrated Ground on Use': '使用時建立奉獻地面',
       'Grants 168% of Life Recovery to Minions': '給予召喚物 168% 生命回復',
       'Intimidate / Maim implicit candidates': '威嚇／癱瘓隱性詞候選',
@@ -3408,7 +3413,7 @@
           'guardian:item:guardian-helm': { zh: '40–60 物理', en: '40–60 Physical' },
           'player:gem:carrion-golem': { zh: '29–43 物理', en: '29–43 Physical' },
           'merc:skill:rallying-cry': {
-            zh: '<span class="ledger-formula-line">公式（30 點威力＝傳奇敵人 20＋玩家 5＋5 隻召喚物合計 5）</span><span class="ledger-formula-line">456–762 × [⌊30 ÷ 5⌋ × 4%]</span><span class="ledger-formula-line">× [1＋(22%＋30%＋20%＋17%)]（增益效果直接相加）</span><span class="ledger-formula-line">＝456–762 × 24% × 1.89</span><span class="ledger-formula-result">≈ 207–346 額外物理傷害</span><span class="ledger-formula-note">前提：傭兵的激勵戰吼給玩家召喚物吃不到 100% 更多點傷。</span>',
+            zh: '<span class="ledger-formula-line">公式（30 點戰吼威力＝傳奇敵人 20＋玩家 5＋5 隻召喚物合計 5）</span><span class="ledger-formula-line">456–762 × [⌊30 ÷ 5⌋ × 4%]</span><span class="ledger-formula-line">× [1＋(22%＋30%＋20%＋17%)]（增益效果直接相加）</span><span class="ledger-formula-line">＝456–762 × 24% × 1.89</span><span class="ledger-formula-result">≈ 207–346 額外物理傷害</span><span class="ledger-formula-note">前提：傭兵的激勵戰吼給玩家召喚物吃不到 100% 更多點傷。</span>',
             en: '<span class="ledger-formula-line">Formula (30 Power = unique enemy 20 + player 5 + five minions total 5)</span><span class="ledger-formula-line">456–762 × [⌊30 ÷ 5⌋ × 4%]</span><span class="ledger-formula-line">× [1 + (22% + 30% + 20% + 17%)] (added directly)</span><span class="ledger-formula-line">= 456–762 × 24% × 1.89</span><span class="ledger-formula-result">≈ 207–346 additional Physical Damage</span><span class="ledger-formula-note">Assumption: the Mercenary Rallying Cry reaches player-owned minions without the 100% more Effect clause.</span>'
           },
           'guardian:item:guardian-gloves': { zh: '984% 更多（×10.84）', en: '984% more (×10.84)' },
@@ -4332,7 +4337,7 @@
     function rallyingCryFormula() {
       return currentLanguage === 'en'
         ? 'Uul-Netol\'s Kiss: 456–762 physical weapon damage\n30 Power = unique enemy 20 + player 5 + five minions total 5\nFormula: 456–762 × [floor(30 / 5) × 4%] × [1 + (22% + 30% + 20% + 17%)]\nWarcry Buff Effect is added directly: 22% + 30% + 20% + 17% = 89%\n= 456–762 × 24% × 1.89 ≈ 207–346 additional Physical Damage\nAssumption: the Mercenary Rallying Cry reaches player-owned minions without the 100% more Effect clause.'
-        : '烏爾尼多之吻：456–762 物理武器傷害\n30 點威力＝傳奇敵人 20＋玩家 5＋5 隻召喚物合計 5\n公式：456–762 × [⌊30 ÷ 5⌋ × 4%] × [1＋(22%＋30%＋20%＋17%)]\n戰吼增益效果直接相加：22%＋30%＋20%＋17%＝89%\n＝456–762 × 24% × 1.89 ≈ 207–346 額外物理傷害\n前提：傭兵的激勵戰吼給玩家召喚物吃不到 100% 更多點傷。';
+        : '烏爾尼多之吻：456–762 物理武器傷害\n30 點戰吼威力＝傳奇敵人 20＋玩家 5＋5 隻召喚物合計 5\n公式：456–762 × [⌊30 ÷ 5⌋ × 4%] × [1＋(22%＋30%＋20%＋17%)]\n戰吼增益效果直接相加：22%＋30%＋20%＋17%＝89%\n＝456–762 × 24% × 1.89 ≈ 207–346 額外物理傷害\n前提：傭兵的激勵戰吼給玩家召喚物吃不到 100% 更多點傷。';
     }
 
     function focusExpanded(source, type, keys, id) {
