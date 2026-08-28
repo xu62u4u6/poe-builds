@@ -36,13 +36,14 @@
     }
 
     * { box-sizing: border-box; }
-    html { background: var(--bg-deep); }
+    html { background: var(--bg-deep); overflow-x: clip; }
     body {
       margin: 0;
       color: var(--text);
       background: var(--bg-deep);
       font: 13px/1.48 var(--font-ui);
       min-height: 100vh;
+      overflow-x: clip;
     }
     body::after {
       content: "";
@@ -556,6 +557,7 @@
       .engine-panel { min-height: 0; }
       .required-links-layout { grid-template-columns: 1fr; }
       .required-links-secondary { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+      .ledger-base-columns { grid-template-columns: 1fr; gap: 0; }
       .step-detail { height: auto; max-height: none; margin-top: 4px; overflow: visible; }
       .step-detail-inner { grid-template-columns: 1fr; }
       .step-detail-content { position: static; }
@@ -572,7 +574,8 @@
       .section-actions { flex-wrap: wrap; justify-content: end; }
       .section-actions > span { display: none; }
       .character-head { display: grid; gap: 12px; }
-      .character-controls { justify-content: start; }
+      .character-controls { justify-content: start; flex-wrap: wrap; gap: 8px 12px; }
+      .snapshot-note { display: none; }
       .mechanic-title { align-items: start; flex-wrap: wrap; }
       .engine-tabs { width: 100%; }
       .mechanic-overview { display: grid; gap: 6px; }
@@ -589,7 +592,7 @@
       .damage-circuit .step-short { align-self: start; max-width: none; font-size: 9px; }
       .damage-lane-output { display: none; }
       .damage-final-output { justify-self: stretch; width: auto; margin: 0; text-align: left; }
-      .ledger-base-columns { grid-template-columns: 1fr; gap: 0; }
+      .gem-links-grid { grid-template-columns: minmax(0, 1fr); }
       .ledger-jewel-chip .item-tooltip, .ledger-source .item-tooltip, .gem-node .item-tooltip, .spectre-support-node .item-tooltip { position: fixed; left: 8px; right: 8px; bottom: 8px; top: auto; width: auto; transform: translateY(4px); }
       .ledger-jewel-chip:hover > .item-tooltip, .ledger-jewel-chip:focus-visible > .item-tooltip { transform: translateY(0); }
       .ledger-source:hover > .item-tooltip, .ledger-source:focus-within > .item-tooltip, .gem-node:hover .item-tooltip, .gem-node:focus-visible .item-tooltip, .spectre-support-node:hover .item-tooltip, .spectre-support-node:focus-visible .item-tooltip { transform: translateY(0); }
@@ -3143,7 +3146,60 @@
       'Supported Skills deal 11% increased Melee Damage': '被支援技能增加 11% 近戰傷害',
       'First Repeat of Supported Skills deals 22% more Damage': '被支援技能第一次重複造成 22% 更多傷害',
       'Second Repeat of Supported Skills deals 44% more Damage': '被支援技能第二次重複造成 44% 更多傷害',
-      'Third Repeat of Supported Skills deals 66% more Damage': '被支援技能第三次重複造成 66% 更多傷害'
+      'Third Repeat of Supported Skills deals 66% more Damage': '被支援技能第三次重複造成 66% 更多傷害',
+      '-62% to Lightning Resistance': '閃電抗性 −62%',
+      '-72% to Lightning Resistance': '閃電抗性 −72%',
+      '+13 to Strength': '力量 +13',
+      '+28 to maximum Life': '最大生命 +28',
+      '+29 to maximum Life': '最大生命 +29',
+      '+30 to maximum Life': '最大生命 +30',
+      '+103 to maximum Life': '最大生命 +103',
+      '+173 to maximum Life': '最大生命 +173',
+      '+19% to Chaos Resistance': '混沌抗性 +19%',
+      '+30% to Chaos Resistance': '混沌抗性 +30%',
+      '+64% to Fire Resistance': '火焰抗性 +64%',
+      '0.4% of Physical Attack Damage Leeched as Life': '物理攻擊傷害的 0.4% 偷取為生命',
+      '1% increased Damage per 1% Chance to Block Attack Damage': '每 1% 攻擊傷害格擋率增加 1% 傷害',
+      '17% increased Rallying Cry Buff Effect': '激勵戰吼增益效果增加 17%',
+      '20% increased Charges per use': '每次使用的充能增加 20%',
+      '20% increased Duration': '增加 20% 持續時間',
+      '22% increased Warcry Buff Effect': '戰吼增益效果增加 22%',
+      '24% Chance to Block Attack Damage': '24% 攻擊傷害格擋率',
+      '26% increased Amount Recovered': '增加 26% 回復量',
+      '27% reduced Charges per use': '每次使用的充能消耗降低 27%',
+      '30% increased Movement Speed': '增加 30% 移動速度',
+      '30% increased Warcry Buff Effect': '戰吼增益效果增加 30%',
+      '35% chance to Avoid being Shocked during Effect': '效果期間有 35% 機率避免感電',
+      '38% increased Duration': '增加 38% 持續時間',
+      '5% chance to deal Double Damage': '5% 機率造成雙倍傷害',
+      '52% increased Armour during Effect': '效果期間增加 52% 護甲',
+      'Added Small Passive Skills also grant: +3% to Fire Resistance': '新增的小型被動技能也提供：+3% 火焰抗性',
+      'Added Small Passive Skills also grant: +5 to Dexterity': '新增的小型被動技能也提供：+5 敏捷',
+      'Added Small Passive Skills also grant: +5 to Maximum Life': '新增的小型被動技能也提供：+5 最大生命',
+      'Added Small Passive Skills also grant: +5% to Fire Resistance': '新增的小型被動技能也提供：+5% 火焰抗性',
+      'Added Small Passive Skills grant: Minions deal 10% increased Damage': '新增的小型被動技能提供：召喚物增加 10% 傷害',
+      'Added Small Passive Skills have 35% increased Effect': '新增的小型被動技能效果增加 35%',
+      '1 Added Passive Skill is Renewal': '新增 1 個被動技能：復甦',
+      '1 Added Passive Skill is Rotten Claws': '新增 1 個被動技能：腐鏽之爪',
+      '1 Added Passive Skill is Vicious Bite': '新增 1 個被動技能：惡毒之咬',
+      '2 Added Passive Skills are Jewel Sockets': '新增 2 個被動技能為珠寶插槽',
+      'Adds 12 Passive Skills': '增加 12 個被動技能',
+      'Adds 8 Passive Skills': '增加 8 個被動技能',
+      'Creates Consecrated Ground on Use': '使用時建立奉獻地面',
+      'Grants 168% of Life Recovery to Minions': '給予召喚物 168% 生命回復',
+      'Intimidate / Maim implicit candidates': '威嚇／癱瘓隱性詞候選',
+      'Minions deal 16% increased Damage': '召喚物增加 16% 傷害',
+      'Minions deal 16% increased Damage if you\'ve used a Minion Skill Recently': '近期使用召喚物技能時，召喚物增加 16% 傷害',
+      'Minions deal 18 to 26 additional Physical Damage': '召喚物造成 18–26 額外物理傷害',
+      'Minions deal 19 to 27 additional Physical Damage': '召喚物造成 19–27 額外物理傷害',
+      'Minions deal 23 to 34 additional Physical Damage': '召喚物造成 23–34 額外物理傷害',
+      'Minions deal 30% increased Damage': '召喚物增加 30% 傷害',
+      'Minions have +10% to all Elemental Resistances': '召喚物 +10% 全元素抗性',
+      'Minions have +9% to all Elemental Resistances': '召喚物 +9% 全元素抗性',
+      'Minions have 14% increased Movement Speed': '召喚物增加 14% 移動速度',
+      'Minions have 7% chance to Taunt on Hit with Attacks': '召喚物用攻擊擊中時有 7% 機率嘲諷',
+      'Sap Enemies when you Block their Damage': '格擋敵人傷害時使其殘喘',
+      'Used when Charges reach full': '充能滿時使用'
     };
     const PRICE_CONDITION_ZH = {
       "Doryani's Prototype 6L; core version before the reduced-extra-crit-damage implicit": '多里亞尼之型 6L；核心版本（未含減少暴擊額外傷害隱性詞）',
@@ -3352,7 +3408,7 @@
           'guardian:item:guardian-helm': { zh: '40–60 物理', en: '40–60 Physical' },
           'player:gem:carrion-golem': { zh: '29–43 物理', en: '29–43 Physical' },
           'merc:skill:rallying-cry': {
-            zh: '<span class="ledger-formula-line">公式（30 Power＝傳奇敵人 20＋玩家 5＋5 隻召喚物合計 5）</span><span class="ledger-formula-line">456–762 × [⌊30 ÷ 5⌋ × 4%]</span><span class="ledger-formula-line">× [1＋(22%＋30%＋20%＋17%)]（增益效果直接相加）</span><span class="ledger-formula-line">＝456–762 × 24% × 1.89</span><span class="ledger-formula-result">≈ 207–346 額外物理傷害</span><span class="ledger-formula-note">前提：傭兵的激勵戰吼給玩家召喚物吃不到 100% more 點傷。</span>',
+            zh: '<span class="ledger-formula-line">公式（30 點威力＝傳奇敵人 20＋玩家 5＋5 隻召喚物合計 5）</span><span class="ledger-formula-line">456–762 × [⌊30 ÷ 5⌋ × 4%]</span><span class="ledger-formula-line">× [1＋(22%＋30%＋20%＋17%)]（增益效果直接相加）</span><span class="ledger-formula-line">＝456–762 × 24% × 1.89</span><span class="ledger-formula-result">≈ 207–346 額外物理傷害</span><span class="ledger-formula-note">前提：傭兵的激勵戰吼給玩家召喚物吃不到 100% 更多點傷。</span>',
             en: '<span class="ledger-formula-line">Formula (30 Power = unique enemy 20 + player 5 + five minions total 5)</span><span class="ledger-formula-line">456–762 × [⌊30 ÷ 5⌋ × 4%]</span><span class="ledger-formula-line">× [1 + (22% + 30% + 20% + 17%)] (added directly)</span><span class="ledger-formula-line">= 456–762 × 24% × 1.89</span><span class="ledger-formula-result">≈ 207–346 additional Physical Damage</span><span class="ledger-formula-note">Assumption: the Mercenary Rallying Cry reaches player-owned minions without the 100% more Effect clause.</span>'
           },
           'guardian:item:guardian-gloves': { zh: '984% 更多（×10.84）', en: '984% more (×10.84)' },
@@ -3654,10 +3710,7 @@
 
     function localizedModifierText(source, text) {
       if (currentLanguage !== 'zh' || !text) return text || '';
-      if (source?.rarity === 'unique' || source?.kind || source?.id === 'rallying-cry' || source?.id === 'incite') {
-        return MOD_TEXT_ZH[text] || text;
-      }
-      return text;
+      return MOD_TEXT_ZH[text] || text;
     }
 
     function localizedPriceCondition(text) {
@@ -4279,7 +4332,7 @@
     function rallyingCryFormula() {
       return currentLanguage === 'en'
         ? 'Uul-Netol\'s Kiss: 456–762 physical weapon damage\n30 Power = unique enemy 20 + player 5 + five minions total 5\nFormula: 456–762 × [floor(30 / 5) × 4%] × [1 + (22% + 30% + 20% + 17%)]\nWarcry Buff Effect is added directly: 22% + 30% + 20% + 17% = 89%\n= 456–762 × 24% × 1.89 ≈ 207–346 additional Physical Damage\nAssumption: the Mercenary Rallying Cry reaches player-owned minions without the 100% more Effect clause.'
-        : '烏爾尼多之吻：456–762 物理武器傷害\n30 Power＝傳奇敵人 20＋玩家 5＋5 隻召喚物合計 5\n公式：456–762 × [⌊30 ÷ 5⌋ × 4%] × [1＋(22%＋30%＋20%＋17%)]\n戰吼增益效果直接相加：22%＋30%＋20%＋17%＝89%\n＝456–762 × 24% × 1.89 ≈ 207–346 額外物理傷害\n前提：傭兵的激勵戰吼給玩家召喚物吃不到 100% more 點傷。';
+        : '烏爾尼多之吻：456–762 物理武器傷害\n30 點威力＝傳奇敵人 20＋玩家 5＋5 隻召喚物合計 5\n公式：456–762 × [⌊30 ÷ 5⌋ × 4%] × [1＋(22%＋30%＋20%＋17%)]\n戰吼增益效果直接相加：22%＋30%＋20%＋17%＝89%\n＝456–762 × 24% × 1.89 ≈ 207–346 額外物理傷害\n前提：傭兵的激勵戰吼給玩家召喚物吃不到 100% 更多點傷。';
     }
 
     function focusExpanded(source, type, keys, id) {
@@ -4486,6 +4539,9 @@
         const subtitle = document.getElementById(`actor-${actorKey}-subtitle`);
         if (title) title.textContent = actorCopy(actorKey, 'title');
         if (subtitle) subtitle.textContent = actorCopy(actorKey, 'subtitle');
+      });
+      document.querySelectorAll('.mercenary-support-label').forEach(node => {
+        node.textContent = currentLanguage === 'en' ? 'Swiftblade · Support setup' : '迅刃 · 支援配置';
       });
       document.querySelectorAll('[data-language]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.language === currentLanguage)));
       updateDetailToggle(document.getElementById('step-detail'), 'damage');
@@ -4729,7 +4785,7 @@
 
     function ledgerActorTag(actor) {
       if (actor === 'guardian') return { label: 'AG', className: 'ag' };
-      if (actor === 'merc') return { label: 'Mercenary', className: 'mercenary' };
+      if (actor === 'merc') return { label: currentLanguage === 'en' ? 'Mercenary' : '傭兵', className: 'mercenary' };
       if (actor === 'state') return { label: 'Enemy', className: 'enemy' };
       return null;
     }
