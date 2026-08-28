@@ -374,33 +374,9 @@
     .aux-subbutton { flex: 0 0 auto; padding: 5px 8px; border: 1px solid var(--line-soft); border-radius: 999px; background: transparent; color: var(--faint); font: 600 9px/1 var(--font-ui); cursor: pointer; }
     .aux-subbutton:hover, .aux-subbutton:focus-visible { border-color: var(--text); color: var(--text); outline: none; }
     .aux-subbutton.active { border-color: var(--emerald-dim); background: color-mix(in oklch, var(--emerald-dim) 24%, transparent); color: var(--emerald); }
-    .aux-circuit { display: grid; gap: 8px; padding: 2px 0 14px; border-bottom: 1px solid var(--line-soft); }
-    .aux-lane { display: grid; grid-template-columns: 118px minmax(0, 1fr) 92px; align-items: center; min-width: 0; min-height: 76px; }
-    .aux-lane-head { display: grid; gap: 3px; align-content: center; padding-right: 12px; }
-    .aux-lane-head strong { color: var(--subdued); font: 600 11px/1.15 var(--font-display); }
-    .aux-lane-head span { color: var(--faint); font-size: 9px; line-height: 1.25; }
-    .aux-lane-track { display: flex; align-items: start; min-width: 0; overflow-x: auto; padding: 6px 4px 7px; scrollbar-width: thin; }
-    .aux-node-wrap { display: flex; align-items: start; flex: 0 0 auto; }
-    .aux-node-connector { width: 30px; height: 38px; display: grid; place-items: center; color: var(--line); }
-    .aux-node-connector::before { content: ""; width: 100%; height: 1px; background: currentColor; }
-    .aux-node { display: grid; justify-items: center; align-content: start; gap: 4px; width: 122px; min-height: 0; padding: 0 4px 5px; border: 0; background: transparent; color: var(--subdued); text-align: center; cursor: pointer; }
-    .aux-node-art { position: relative; display: grid; place-items: center; width: 42px; height: 42px; border: 2px solid var(--line); border-radius: 50%; background: var(--bg-deep); box-shadow: 0 0 0 2px color-mix(in oklch, var(--surface-3) 82%, transparent); transition: border-color 120ms, background 120ms, box-shadow 120ms; }
-    .aux-node-art img { width: 30px; height: 30px; object-fit: contain; }
-    .aux-node-fallback { color: var(--faint); font: 600 11px/1 var(--font-display); }
-    .aux-card-number { position: absolute; right: -7px; top: -6px; display: grid; place-items: center; min-width: 19px; height: 16px; padding: 0 3px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-3); color: var(--faint); font-size: 8px; }
-    .aux-card-name { color: currentColor; font-size: 10px; font-weight: 600; line-height: 1.15; }
-    .aux-card-short { max-width: 116px; color: var(--faint); font-size: 8px; line-height: 1.2; }
     .aux-status { padding: 2px 5px; border: 1px solid var(--line-soft); border-radius: 8px; color: var(--faint); font-size: 7px; line-height: 1; text-transform: uppercase; letter-spacing: .05em; }
     .aux-status.target, .aux-status.optional { border-color: color-mix(in oklch, var(--unique) 48%, var(--line)); color: var(--unique); }
     .aux-status.conditional { border-color: color-mix(in oklch, var(--rare) 42%, var(--line)); color: var(--rare); }
-    .aux-node:hover .aux-node-art, .aux-node:focus-visible .aux-node-art { border-color: var(--text); }
-    .aux-node:focus-visible { outline: 2px solid var(--emerald); outline-offset: 3px; border-radius: 3px; }
-    .aux-node.active { color: var(--emerald); }
-    .aux-node.active .aux-node-art { border-color: var(--emerald); background: color-mix(in oklch, var(--emerald-dim) 34%, var(--bg-deep)); box-shadow: 0 0 0 3px color-mix(in oklch, var(--emerald) 18%, transparent); }
-    .aux-node.active .aux-card-number { border-color: var(--emerald-dim); color: var(--emerald); }
-    .aux-lane-output { position: relative; display: grid; place-items: center; align-self: stretch; margin-left: 12px; color: var(--faint); font-size: 8px; line-height: 1.25; text-align: center; }
-    .aux-lane-output::before { content: ""; position: absolute; left: -12px; top: 50%; width: 12px; height: 1px; background: var(--line); }
-    .aux-lane-output strong { display: block; color: var(--subdued); font: 600 10px/1.15 var(--font-display); }
     .aux-card-detail { height: clamp(430px, 56vh, 610px); margin-top: 2px; padding: 14px 15px 18px; overflow-y: auto; overscroll-behavior: contain; border-top: 1px solid var(--emerald-dim); border-bottom: 1px solid var(--line-soft); background: color-mix(in oklch, var(--surface) 28%, transparent); scrollbar-gutter: stable; }
     .aux-card-detail-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
     .aux-card-detail-title { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
@@ -421,41 +397,8 @@
     .aux-source-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 12px 15px 0; }
     .aux-source-head strong { color: var(--subdued); font: 600 11px/1 var(--font-display); }
     .aux-source-head span { color: var(--faint); font-size: 8px; }
-    .step-rail { display: flex; gap: 5px; overflow-x: auto; padding: 10px 0; border-bottom: 1px solid var(--line-soft); }
-    .step-button { flex: 1 0 126px; min-height: 46px; border: 0; border-top: 2px solid var(--line-soft); border-radius: 0; background: transparent; color: var(--subdued); text-align: left; cursor: pointer; padding: 7px 5px; transition: border-color 120ms, background 120ms, color 120ms; }
-    .step-button:hover, .step-button:focus-visible { border-top-color: var(--text); color: var(--text); outline: none; }
-    .step-button.active { border-top-color: var(--emerald); background: color-mix(in oklch, var(--emerald-dim) 18%, transparent); color: var(--emerald); }
-    .step-number { display: block; color: var(--faint); font-size: 9px; }
-    .step-button.active .step-number { color: color-mix(in oklch, var(--emerald) 70%, var(--text)); }
-    .step-name { display: block; margin-top: 2px; font-size: 12px; font-weight: 600; }
-    .step-short { display: block; margin-top: 2px; color: var(--faint); font-size: 10px; }
-    .damage-circuit { display: grid; gap: 8px; padding: 12px 0 14px; border-bottom: 1px solid var(--line-soft); }
-    .damage-lane { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: center; min-width: 0; min-height: 72px; }
-    .damage-lane-head { display: grid; gap: 2px; align-content: center; padding-right: 12px; }
-    .damage-lane-head strong { color: var(--subdued); font: 600 11px/1.15 var(--font-display); }
-    .damage-lane-head span { color: var(--faint); font-size: 9px; }
-    .damage-lane-track { display: flex; align-items: start; min-width: 0; overflow-x: auto; padding: 6px 4px 7px; scrollbar-width: thin; }
-    .damage-node-wrap { display: flex; align-items: start; flex: 0 0 auto; }
-    .damage-node-connector { width: 27px; height: 34px; display: grid; place-items: center; color: var(--line); }
-    .damage-node-connector::before { content: ""; width: 100%; height: 1px; background: currentColor; }
-    .damage-circuit .step-button { display: grid; justify-items: center; align-content: start; gap: 4px; width: 108px; min-height: 0; padding: 0 3px 5px; border: 0; background: transparent; color: var(--subdued); text-align: center; }
-    .damage-node-art { position: relative; display: grid; place-items: center; width: 38px; height: 38px; border: 2px solid var(--line); border-radius: 50%; background: var(--bg-deep); box-shadow: 0 0 0 2px color-mix(in oklch, var(--surface-3) 82%, transparent); transition: border-color 120ms, box-shadow 120ms, background 120ms; }
-    .damage-node-art img { width: 27px; height: 27px; object-fit: contain; }
-    .damage-node-fallback { color: var(--faint); font: 600 12px/1 var(--font-display); }
-    .damage-circuit .step-button:hover .damage-node-art, .damage-circuit .step-button:focus-visible .damage-node-art { border-color: var(--text); }
-    .damage-circuit .step-button:focus-visible { outline: 2px solid var(--emerald); outline-offset: 3px; border-radius: 3px; }
-    .damage-circuit .step-button.active { color: var(--emerald); background: transparent; }
-    .damage-circuit .step-button.active .damage-node-art { border-color: var(--emerald); background: color-mix(in oklch, var(--emerald-dim) 34%, var(--bg-deep)); box-shadow: 0 0 0 3px color-mix(in oklch, var(--emerald) 18%, transparent); }
-    .damage-circuit .step-number { position: absolute; right: -5px; top: -6px; display: grid; place-items: center; min-width: 18px; height: 16px; padding: 0 3px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-3); color: var(--faint); font-size: 8px; }
-    .damage-circuit .step-button.active .step-number { border-color: var(--emerald-dim); color: var(--emerald); }
-    .damage-circuit .step-name { display: block; margin: 2px 0 0; color: currentColor; font-size: 10px; font-weight: 600; line-height: 1.15; }
-    .damage-circuit .step-short { display: block; max-width: 100px; margin: 0; color: var(--faint); font-size: 8px; line-height: 1.2; }
-    .damage-lane-output { position: relative; display: grid; place-items: center; align-self: stretch; margin-left: 12px; color: var(--faint); font-size: 9px; text-align: center; }
-    .damage-lane-output::before { content: ""; position: absolute; left: -12px; top: 50%; width: 12px; height: 1px; background: var(--line); }
-    .damage-lane-output strong { display: block; color: var(--subdued); font: 600 10px/1.15 var(--font-display); }
-    .damage-final-output { justify-self: end; width: 88px; margin-top: -4px; padding: 5px 7px; border-top: 1px solid var(--emerald-dim); color: var(--emerald); font: 600 10px/1.2 var(--font-display); text-align: center; }
     .damage-workbench { display: grid; }
-    .damage-workbench > .damage-circuit { border-bottom: 0; }
+    .damage-workbench > #step-rail > .engine-rail { border-bottom: 0; }
     .step-detail { display: block; width: 100%; height: clamp(430px, 56vh, 610px); margin: 2px 0 8px; overflow-y: auto; overscroll-behavior: contain; border-top: 1px solid var(--emerald-dim); border-bottom: 1px solid var(--line-soft); background: color-mix(in oklch, var(--surface) 28%, transparent); scrollbar-gutter: stable; }
     .step-detail.is-collapsed, .aux-card-detail.is-collapsed { height: auto; min-height: 0; max-height: none; overflow: visible; }
     .step-detail-inner { display: grid; grid-template-columns: minmax(250px, .62fr) minmax(0, 1.38fr); min-height: 100%; width: 100%; margin: 0; }
@@ -464,6 +407,41 @@
     .step-detail-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; padding: 14px 18px 10px; border-bottom: 1px solid var(--line-soft); }
     .step-detail.is-collapsed .step-detail-head, .aux-card-detail.is-collapsed .aux-card-detail-head { border-bottom-color: transparent; }
     .step-detail-head h3 { margin: 0; color: var(--text); font: 600 20px/1.1 var(--font-display); }
+
+    /* Shared engine renderer contract. Legacy classes remain as aliases for existing selectors. */
+    .engine-rail { display: grid; gap: 8px; padding: 12px 0 14px; border-bottom: 1px solid var(--line-soft); }
+    .engine-lane { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: center; min-width: 0; min-height: 72px; }
+    .engine-lane-head { display: grid; gap: 2px; align-content: center; padding-right: 12px; }
+    .engine-lane-head strong { color: var(--subdued); font: 600 11px/1.15 var(--font-display); }
+    .engine-lane-head span { color: var(--faint); font-size: 9px; }
+    .engine-lane-track { display: flex; align-items: start; min-width: 0; overflow-x: auto; padding: 6px 4px 7px; scrollbar-width: thin; }
+    .engine-node-wrap { display: flex; align-items: start; flex: 0 0 auto; }
+    .engine-node-connector { width: 27px; height: 34px; display: grid; place-items: center; color: var(--line); }
+    .engine-node-connector::before { content: ""; width: 100%; height: 1px; background: currentColor; }
+    .engine-rail .engine-node { display: grid; flex: 0 0 auto; justify-items: center; align-content: start; gap: 4px; width: 108px; min-height: 0; padding: 0 3px 5px; border: 0; background: transparent; color: var(--subdued); text-align: center; cursor: pointer; }
+    .engine-node-art { position: relative; display: grid; place-items: center; width: 38px; height: 38px; border: 2px solid var(--line); border-radius: 50%; background: var(--bg-deep); box-shadow: 0 0 0 2px color-mix(in oklch, var(--surface-3) 82%, transparent); transition: border-color 120ms, box-shadow 120ms, background 120ms; }
+    .engine-node-art img { width: 27px; height: 27px; object-fit: contain; }
+    .engine-node-fallback { color: var(--faint); font: 600 12px/1 var(--font-display); }
+    .engine-rail .engine-node:hover .engine-node-art, .engine-rail .engine-node:focus-visible .engine-node-art { border-color: var(--text); }
+    .engine-rail .engine-node:focus-visible { outline: 2px solid var(--emerald); outline-offset: 3px; border-radius: 3px; }
+    .engine-rail .engine-node.active { color: var(--emerald); background: transparent; }
+    .engine-rail .engine-node.active .engine-node-art { border-color: var(--emerald); background: color-mix(in oklch, var(--emerald-dim) 34%, var(--bg-deep)); box-shadow: 0 0 0 3px color-mix(in oklch, var(--emerald) 18%, transparent); }
+    .engine-node-number { position: absolute; right: -5px; top: -6px; display: grid; place-items: center; min-width: 18px; height: 16px; padding: 0 3px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-3); color: var(--faint); font-size: 8px; }
+    .engine-rail .engine-node.active .engine-node-number { border-color: var(--emerald-dim); color: var(--emerald); }
+    .engine-node-name { display: block; margin: 2px 0 0; color: currentColor; font-size: 10px; font-weight: 600; line-height: 1.15; }
+    .engine-node-short { display: block; max-width: 100px; margin: 0; color: var(--faint); font-size: 8px; line-height: 1.2; }
+    .engine-subrail { display: flex; align-items: center; gap: 6px; min-height: 37px; padding: 6px 0; overflow-x: auto; border-bottom: 1px solid var(--line-soft); scrollbar-width: thin; }
+    .engine-subrail:empty { min-height: 0; padding: 0; border-bottom: 0; }
+    .engine-subbutton { flex: 0 0 auto; padding: 5px 8px; border: 1px solid var(--line-soft); border-radius: 999px; background: transparent; color: var(--faint); font: 600 9px/1 var(--font-ui); cursor: pointer; }
+    .engine-subbutton:hover, .engine-subbutton:focus-visible { border-color: var(--text); color: var(--text); outline: none; }
+    .engine-subbutton.active { border-color: var(--emerald-dim); background: color-mix(in oklch, var(--emerald-dim) 24%, transparent); color: var(--emerald); }
+    .engine-detail { display: block; width: 100%; height: clamp(430px, 56vh, 610px); margin: 2px 0 8px; padding: 0; overflow-y: auto; overscroll-behavior: contain; border-top: 1px solid var(--emerald-dim); border-bottom: 1px solid var(--line-soft); background: color-mix(in oklch, var(--surface) 28%, transparent); scrollbar-gutter: stable; }
+    .engine-detail-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; padding: 14px 18px 10px; border-bottom: 1px solid var(--line-soft); }
+    .engine-detail-head h3, .engine-detail-head h4 { margin: 0; color: var(--text); font: 600 20px/1.1 var(--font-display); }
+    .engine-detail-title { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+    .engine-detail-body { display: grid; grid-template-columns: minmax(250px, .62fr) minmax(0, 1.38fr); min-height: 100%; width: 100%; margin: 0; }
+    .engine-detail.is-collapsed .engine-detail-head { border-bottom-color: transparent; }
+    .engine-detail.is-collapsed .engine-detail-body { display: none; }
     .detail-toggle { display: inline-flex; align-items: center; gap: 5px; flex: 0 0 auto; border: 1px solid var(--line-soft); border-radius: 2px; background: transparent; color: var(--faint); padding: 4px 6px; font: 600 9px/1 var(--font-ui); cursor: pointer; }
     .detail-toggle:hover, .detail-toggle:focus-visible { border-color: var(--emerald-dim); color: var(--emerald); outline: none; }
     .detail-toggle-icon { color: var(--emerald); font-size: 13px; line-height: .7; }
@@ -563,6 +541,8 @@
       .required-links-layout { grid-template-columns: 1fr; }
       .required-links-secondary { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
       .ledger-base-columns { grid-template-columns: 1fr; gap: 0; }
+      .engine-detail { height: auto; max-height: none; overflow: visible; }
+      .engine-detail-body { grid-template-columns: 1fr; }
       .step-detail { height: auto; max-height: none; margin-top: 4px; overflow: visible; }
       .step-detail-inner { grid-template-columns: 1fr; }
       .step-detail-content { position: static; }
@@ -584,36 +564,22 @@
       .mechanic-title { align-items: start; flex-wrap: wrap; }
       .engine-tabs { width: 100%; }
       .mechanic-overview { display: grid; gap: 6px; }
-      .damage-circuit { gap: 14px; }
-      .damage-lane { grid-template-columns: 1fr; min-height: 0; }
-      .damage-lane-head { padding: 0 0 6px; border-bottom: 1px solid var(--line-soft); }
-      .damage-lane-track { flex-direction: column; align-items: stretch; overflow: visible; padding: 5px 0 0 12px; }
-      .damage-node-wrap { flex-direction: column; align-items: center; width: 100%; }
-      .damage-node-connector { width: 38px; height: 18px; }
-      .damage-node-connector::before { width: 1px; height: 100%; }
-      .damage-circuit .step-button { grid-template-columns: 42px minmax(0, 1fr); grid-template-rows: auto auto; justify-items: start; width: 100%; min-height: 52px; padding: 5px 4px; text-align: left; }
-      .damage-node-art { grid-row: 1 / 3; }
-      .damage-circuit .step-name { align-self: end; font-size: 11px; }
-      .damage-circuit .step-short { align-self: start; max-width: none; font-size: 9px; }
-      .damage-lane-output { display: none; }
-      .damage-final-output { justify-self: stretch; width: auto; margin: 0; text-align: left; }
+      .engine-rail { gap: 14px; }
+      .engine-lane { grid-template-columns: 1fr; min-height: 0; }
+      .engine-lane-head { padding: 0 0 6px; border-bottom: 1px solid var(--line-soft); }
+      .engine-lane-track { flex-direction: column; align-items: stretch; overflow: visible; padding: 5px 0 0 12px; }
+      .engine-node-wrap { flex-direction: column; align-items: center; width: 100%; }
+      .engine-node-connector { width: 38px; height: 18px; }
+      .engine-node-connector::before { width: 1px; height: 100%; }
+      .engine-rail .engine-node { grid-template-columns: 42px minmax(0, 1fr); grid-template-rows: auto auto; justify-items: start; width: 100%; min-height: 52px; padding: 5px 4px; text-align: left; }
+      .engine-node-art { grid-row: 1 / 3; }
+      .engine-node-name { align-self: end; font-size: 11px; }
+      .engine-node-short { align-self: start; max-width: none; font-size: 9px; }
+      .engine-detail-body { grid-template-columns: 1fr; }
       .gem-links-grid { grid-template-columns: minmax(0, 1fr); }
       .ledger-jewel-chip .item-tooltip, .ledger-source .item-tooltip, .gem-node .item-tooltip, .spectre-support-node .item-tooltip { position: fixed; left: 8px; right: 8px; bottom: 8px; top: auto; width: auto; transform: translateY(4px); }
       .ledger-jewel-chip:hover > .item-tooltip, .ledger-jewel-chip:focus-visible > .item-tooltip { transform: translateY(0); }
       .ledger-source:hover > .item-tooltip, .ledger-source:focus-within > .item-tooltip, .gem-node:hover .item-tooltip, .gem-node:focus-visible .item-tooltip, .spectre-support-node:hover .item-tooltip, .spectre-support-node:focus-visible .item-tooltip { transform: translateY(0); }
-      .aux-circuit { gap: 14px; }
-      .aux-lane { grid-template-columns: 1fr; min-height: 0; }
-      .aux-lane-head { padding: 0 0 6px; border-bottom: 1px solid var(--line-soft); }
-      .aux-lane-track { flex-direction: column; align-items: stretch; overflow: visible; padding: 5px 0 0 12px; }
-      .aux-node-wrap { flex-direction: column; align-items: center; width: 100%; }
-      .aux-node-connector { width: 42px; height: 18px; }
-      .aux-node-connector::before { width: 1px; height: 100%; }
-      .aux-node { grid-template-columns: 46px minmax(0, 1fr) auto; grid-template-rows: auto auto; justify-items: start; width: 100%; min-height: 56px; padding: 5px 4px; text-align: left; }
-      .aux-node-art { grid-row: 1 / 3; }
-      .aux-card-name { align-self: end; font-size: 11px; }
-      .aux-card-short { align-self: start; max-width: none; font-size: 9px; }
-      .aux-status { grid-column: 3; grid-row: 1 / 3; align-self: center; }
-      .aux-lane-output { display: none; }
       .mechanic-breakdown { grid-template-columns: 1fr; }
       .aux-card-detail-body { grid-template-columns: 1fr; }
       .aux-source-column { border-left: 0; border-top: 1px solid var(--line-soft); }
@@ -644,8 +610,8 @@
         <button class="engine-tab" type="button" role="tab" data-engine-tab="survival" aria-selected="false" aria-controls="engine-panel-survival" data-i18n="guardianSurvival">Guardian defense</button>
       </div></header>
       <div class="mechanic-overview"><strong id="mechanic-overview-formula">Final DPS ≈ average hit × hits per second × enemy-side modifiers</strong></div>
-      <div class="engine-panel" id="engine-panel-damage" data-engine-panel="damage">
-        <div class="damage-workbench"><div class="damage-circuit" id="step-rail" aria-label="傷害機制順序"></div><aside class="step-detail" id="step-detail" aria-live="polite"><div class="step-detail-head"><h3 id="step-title" data-i18n="chooseStep">Choose a step to begin</h3><button class="detail-toggle" type="button" data-detail-toggle="damage" aria-expanded="true" aria-controls="step-detail-content" aria-label="Collapse explanation"><span class="detail-toggle-icon" aria-hidden="true">−</span><span class="detail-toggle-label" data-i18n="collapseDetail">Collapse</span></button></div><div class="step-detail-inner" id="step-detail-content"><div class="step-detail-content"><div class="step-outcome"><span id="step-outcome-label">Effect</span><strong id="step-outcome">Select a step</strong></div><p class="step-copy" id="step-copy" data-i18n="idleCopy">Each step breaks down the engine shared by the three actors.</p><div class="step-formula" id="step-formula"></div></div><div class="step-ledger" id="step-ledger"></div></div></aside></div>
+        <div class="engine-panel" id="engine-panel-damage" data-engine-panel="damage">
+        <div class="damage-workbench"><div id="step-rail" aria-label="傷害機制順序"></div><aside class="engine-detail step-detail" id="step-detail" aria-live="polite"><div class="engine-detail-head step-detail-head"><h3 id="step-title" data-i18n="chooseStep">Choose a step to begin</h3><button class="detail-toggle" type="button" data-detail-toggle="damage" aria-expanded="true" aria-controls="step-detail-content" aria-label="Collapse explanation"><span class="detail-toggle-icon" aria-hidden="true">−</span><span class="detail-toggle-label" data-i18n="collapseDetail">Collapse</span></button></div><div class="engine-detail-body step-detail-inner" id="step-detail-content"><div class="step-detail-content"><div class="step-outcome"><span id="step-outcome-label">Effect</span><strong id="step-outcome">Select a step</strong></div><p class="step-copy" id="step-copy" data-i18n="idleCopy">Each step breaks down the engine shared by the three actors.</p><div class="step-formula" id="step-formula"></div></div><div class="step-ledger" id="step-ledger"></div></div></aside></div>
       </div>
       <div class="engine-panel" id="engine-panel-defense" data-engine-panel="defense" hidden><div class="aux-engine-content" id="aux-defense-content"></div></div>
       <div class="engine-panel" id="engine-panel-survival" data-engine-panel="survival" hidden><div class="aux-engine-content" id="aux-survival-content"></div></div>
@@ -3768,15 +3734,15 @@
       return currentLanguage === 'zh' ? (spectre.nameZh || spectre.name || '') : (spectre.name || spectre.nameZh || '');
     }
 
-    function localizedStep(step) {
-      const engine = engineFor('damage');
+    function localizedStep(step, data = activeData) {
+      const engine = engineFor('damage', data);
       const schemaStep = engine.steps?.find(candidate => candidate.id === step.id) || step;
       const english = engine.english?.[schemaStep.id];
       const localized = currentLanguage === 'en' && english ? { ...schemaStep, ...english } : schemaStep;
       return { ...localized, title: localizedText(localized.title), short: localizedText(localized.short), copy: localizedText(localized.copy), formula: localizedText(localized.formula) };
     }
-    function localizedAuxCard(card) {
-      const english = engineFor('defense').english?.[card.id] || engineFor('survival').english?.[card.id];
+    function localizedAuxCard(card, tabId = activeEngineTab, data = activeData) {
+      const english = engineFor(tabId, data).english?.[card.id] || AUX_CARD_EN[card.id];
       const localized = currentLanguage === 'en' && english ? { ...card, ...english } : card;
       return { ...localized, title: localizedText(localized.title), short: localizedText(localized.short), copy: localizedText(localized.copy) };
     }
@@ -4400,8 +4366,8 @@
       });
     }
 
-    function getAuxCard(tabId, cardId = activeAuxCards[tabId]) {
-      const panel = engineFor(tabId).steps;
+    function getAuxCard(tabId, cardId = activeAuxCards[tabId], data = activeData) {
+      const panel = engineFor(tabId, data).steps;
       if (!panel?.cards?.length) return null;
       return panel.cards.find(card => card.id === cardId) || panel.cards[0];
     }
@@ -4420,57 +4386,129 @@
       return null;
     }
 
-    function renderAuxNode(card, data, index, connected = true) {
-      const copy = localizedAuxCard(card);
-      const source = auxNodeSource(card, data);
-      const status = engineFor(activeEngineTab).status?.[card.id] || AUX_STATUS[card.id] || { kind: 'current', zh: '目前', en: 'Current' };
-      const icon = source?.icon
-        ? `<img src="${esc(source.icon)}" alt="" loading="lazy">`
-        : `<span class="aux-node-fallback">${esc(card.number)}</span>`;
-      return `<span class="aux-node-wrap">${index && connected ? '<span class="aux-node-connector" aria-hidden="true"></span>' : ''}<button class="aux-node" type="button" data-aux-card="${esc(card.id)}" aria-pressed="false"><span class="aux-node-art">${icon}<span class="aux-card-number">${esc(card.number)}</span></span><span class="aux-card-name">${esc(copy.title)}</span><span class="aux-card-short">${esc(copy.short)}</span><span class="aux-status ${esc(status.kind)}">${esc(status[currentLanguage])}</span></button></span>`;
-    }
-
-    function localizedAuxMechanic(cardId) {
-      const mechanics = engineFor(activeEngineTab).mechanics || AUX_MECHANICS;
+    function localizedAuxMechanic(cardId, tabId = activeEngineTab, data = activeData) {
+      const mechanics = engineFor(tabId, data).mechanics || AUX_MECHANICS;
       return mechanics[cardId]?.[currentLanguage] || mechanics[cardId]?.en || { outcome: '', facts: [] };
     }
 
-    function renderMechanicBreakdown(card, copy = localizedAuxCard(card)) {
-      const mechanic = localizedAuxMechanic(card.id);
+    function renderMechanicBreakdown(card, copy = null, tabId = activeEngineTab, data = activeData) {
+      const localizedCopy = copy || localizedAuxCard(card, tabId, data);
+      const mechanic = localizedAuxMechanic(card.id, tabId, data);
       const outcomeLabel = currentLanguage === 'en' ? 'Effect' : '效果';
-      const formula = copy.formula ? `<div class="step-formula">${esc(copy.formula)}</div>` : '';
-      return `<div class="mechanic-breakdown"><div class="mechanic-outcome"><span>${esc(outcomeLabel)}</span><strong>${esc(mechanic.outcome || copy.short)}</strong></div><p class="mechanic-summary">${esc(copy.copy)}</p>${formula}</div>`;
+      const formula = localizedCopy.formula ? `<div class="step-formula">${esc(localizedCopy.formula)}</div>` : '';
+      return `<div class="mechanic-breakdown"><div class="mechanic-outcome"><span>${esc(outcomeLabel)}</span><strong>${esc(mechanic.outcome || localizedCopy.short)}</strong></div><p class="mechanic-summary">${esc(localizedCopy.copy)}</p>${formula}</div>`;
     }
 
-    function getAuxChapter(tabId, chapterId = activeAuxChapters[tabId]) {
-      const chapters = engineFor(tabId).lanes || [];
+    function getAuxChapter(tabId, chapterId = activeAuxChapters[tabId], data = activeData) {
+      const chapters = engineFor(tabId, data).lanes || [];
       return chapters.find(chapter => chapter.id === chapterId) || chapters[0] || null;
     }
 
-    function auxChapterForCard(tabId, cardId) {
-      return (engineFor(tabId).lanes || []).find(chapter => chapter.cardIds.includes(cardId)) || null;
+    function auxChapterForCard(tabId, cardId, data = activeData) {
+      return (engineFor(tabId, data).lanes || []).find(chapter => (chapter.cardIds || chapter.entryIds || []).includes(cardId)) || null;
     }
 
-    function renderAuxChapter(chapter, index, panel, data) {
-      const representativeCard = chapter.cardIds.map(id => panel.cards.find(card => card.id === id)).find(Boolean);
-      const source = representativeCard ? auxNodeSource(representativeCard, data) : null;
-      const icon = source?.icon
-        ? `<img src="${esc(source.icon)}" alt="" loading="lazy">`
-        : `<span class="damage-node-fallback">${String(index + 1).padStart(2, '0')}</span>`;
-      return `<span class="damage-node-wrap">${index ? '<span class="damage-node-connector" aria-hidden="true"></span>' : ''}<button class="step-button" type="button" data-aux-chapter="${esc(chapter.id)}" aria-pressed="false"><span class="damage-node-art">${icon}<span class="step-number">${String(index + 1).padStart(2, '0')}</span></span><span class="step-name">${esc(chapter.title[currentLanguage])}</span><span class="step-short">${esc(chapter.hint[currentLanguage])}</span></button></span>`;
+    function auxCardsForChapter(tabId, chapter, data = activeData) {
+      const cards = engineFor(tabId, data).steps?.cards || [];
+      const cardIds = chapter?.cardIds || chapter?.entryIds || [];
+      return cardIds.map(id => cards.find(card => card.id === id)).filter(Boolean);
+    }
+
+    function enginePanelCopy(tabId, data) {
+      const engine = engineFor(tabId, data);
+      const panel = engine.steps || {};
+      return currentLanguage === 'en'
+        ? engine.panelEnglish || AUX_PANEL_EN[tabId] || panel
+        : panel;
+    }
+
+    /*
+     * Every engine exposes the same navigation model to the renderer:
+     * lanes contain entries, and entries point to one detail/source target.
+     * Damage entries are steps; defense/survival entries are chapter lanes
+     * whose cards remain available in the secondary rail below.
+     */
+    function engineRailLanes(tabId, data) {
+      const engine = engineFor(tabId, data) || {};
+      if (tabId === 'damage') {
+        const steps = Array.isArray(engine.steps) ? engine.steps : STEPS;
+        return (engine.lanes || DAMAGE_LANES).map(lane => ({
+          id: lane.id,
+          title: localizedText(lane.title),
+          hint: localizedText(lane.hint),
+          entries: (lane.stepIds || lane.entryIds || []).map(id => {
+            const step = steps.find(candidate => candidate.id === id);
+            if (!step) return null;
+            const copy = localizedStep(step, data);
+            return { id: step.id, number: copy.number, title: copy.title, short: copy.short, source: damageNodeSource(step, data), kind: 'damage' };
+          }).filter(Boolean)
+        }));
+      }
+
+      const panelCopy = enginePanelCopy(tabId, data);
+      const chapters = Array.isArray(engine.lanes) ? engine.lanes : [];
+      return [{
+        id: `${tabId}-chapters`,
+        title: localizedText(panelCopy.title),
+        hint: localizedText(panelCopy.short),
+        entries: chapters.map((chapter, index) => {
+          const cards = auxCardsForChapter(tabId, chapter, data);
+          const representative = cards[0];
+          const representativeCopy = representative ? localizedAuxCard(representative, tabId, data) : null;
+          return {
+            id: chapter.id,
+            number: localizedText(chapter.number) || String(index + 1).padStart(2, '0'),
+            title: localizedText(chapter.title) || representativeCopy?.title || chapter.id,
+            short: localizedText(chapter.hint) || representativeCopy?.short || '',
+            source: representative ? auxNodeSource(representative, data) : null,
+            kind: 'aux',
+            connected: chapter.connected !== false
+          };
+        })
+      }];
+    }
+
+    function renderEngineNode(entry, index, tabId) {
+      const number = entry.number || String(index + 1).padStart(2, '0');
+      const icon = entry.source?.icon
+        ? `<img src="${esc(entry.source.icon)}" alt="" loading="lazy">`
+        : `<span class="engine-node-fallback">${esc(number)}</span>`;
+      const legacyAttribute = tabId === 'damage'
+        ? `data-step="${esc(entry.id)}"`
+        : `data-aux-chapter="${esc(entry.id)}"`;
+      const connector = index && entry.connected !== false
+        ? '<span class="engine-node-connector" aria-hidden="true"></span>'
+        : '';
+      return `<span class="engine-node-wrap">${connector}<button class="engine-node" type="button" data-engine-entry="${esc(entry.id)}" data-engine-kind="${esc(tabId)}" ${legacyAttribute} aria-pressed="false"><span class="engine-node-art">${icon}<span class="engine-node-number">${esc(number)}</span></span><span class="engine-node-name">${esc(entry.title)}</span><span class="engine-node-short">${esc(entry.short)}</span></button></span>`;
+    }
+
+    function renderEngineRail(tabId, data) {
+      const lanes = engineRailLanes(tabId, data);
+      return `<div class="engine-rail" data-engine-rail="${esc(tabId)}">${lanes.map(lane => `<section class="engine-lane" data-engine-lane="${esc(lane.id)}"><header class="engine-lane-head"><strong>${esc(lane.title)}</strong><span>${esc(lane.hint)}</span></header><div class="engine-lane-track" role="list" aria-label="${esc(lane.title)}">${lane.entries.map((entry, index) => renderEngineNode(entry, index, tabId)).join('')}</div></section>`).join('')}</div>`;
+    }
+
+    function bindEngineRail(tabId, data, root) {
+      const engine = engineFor(tabId, data) || {};
+      const steps = Array.isArray(engine.steps) ? engine.steps : [];
+      root.querySelectorAll('[data-engine-entry]').forEach(button => button.addEventListener('click', () => {
+        const entryId = button.dataset.engineEntry;
+        if (tabId === 'damage') {
+          const step = steps.find(candidate => candidate.id === entryId);
+          if (step) toggleDamageStep(step, data);
+        } else {
+          setAuxChapter(tabId, entryId);
+        }
+      }));
     }
 
     function renderAuxiliaryPanels(data) {
-      Object.entries(presentationFor(data).engines || {}).filter(([tabId]) => tabId === 'defense' || tabId === 'survival').forEach(([tabId, engine]) => {
-        const panel = engine.steps;
+      Object.entries(presentationFor(data).engines || {}).filter(([tabId]) => tabId === 'defense' || tabId === 'survival').forEach(([tabId]) => {
         const root = document.getElementById(`aux-${tabId}-content`);
         if (!root) return;
-        const panelCopy = currentLanguage === 'en' ? engine.panelEnglish || AUX_PANEL_EN[tabId] : panel;
-        const chapters = engine.lanes || [];
         const activeChapter = getAuxChapter(tabId);
         activeAuxChapters[tabId] = activeChapter?.id || null;
-        root.innerHTML = `<div class="damage-circuit"><section class="damage-lane"><header class="damage-lane-head"><strong>${esc(panelCopy.title)}</strong><span>${esc(panelCopy.short)}</span></header><div class="damage-lane-track" role="list" aria-label="${esc(panelCopy.title)}">${chapters.map((chapter, index) => renderAuxChapter(chapter, index, panel, data)).join('')}</div></section></div><div class="aux-subrail" id="${tabId}-subrail"></div><div class="aux-card-detail" id="${tabId}-card-detail"></div>`;
-        root.querySelectorAll('[data-aux-chapter]').forEach(button => button.addEventListener('click', () => setAuxChapter(tabId, button.dataset.auxChapter)));
+        root.innerHTML = `${renderEngineRail(tabId, data)}<div class="engine-subrail aux-subrail" id="${tabId}-subrail"></div><div class="engine-detail aux-card-detail" id="${tabId}-card-detail"></div>`;
+        bindEngineRail(tabId, data, root);
         setAuxChapter(tabId, activeChapter?.id, activeAuxCards[tabId]);
       });
       renderMechanicDock();
@@ -4487,13 +4525,13 @@
         button.classList.toggle('active', selected);
         button.setAttribute('aria-pressed', String(selected));
       });
-      const cards = chapter.cardIds.map(id => panel.cards.find(card => card.id === id)).filter(Boolean);
+      const cards = auxCardsForChapter(tabId, chapter);
       const selectedCard = cards.find(card => card.id === preferredCardId) || cards.find(card => card.id === activeAuxCards[tabId]) || cards[0];
       const subrail = document.getElementById(`${tabId}-subrail`);
       if (subrail) {
         subrail.innerHTML = cards.length > 1 ? cards.map(card => {
-          const copy = localizedAuxCard(card);
-          return `<button class="aux-subbutton" type="button" data-aux-card="${esc(card.id)}" aria-pressed="false">${esc(copy.title)}</button>`;
+          const copy = localizedAuxCard(card, tabId);
+          return `<button class="engine-subbutton aux-subbutton" type="button" data-aux-card="${esc(card.id)}" aria-pressed="false">${esc(copy.title)}</button>`;
         }).join('') : '';
         subrail.querySelectorAll('[data-aux-card]').forEach(button => button.addEventListener('click', () => setAuxCard(tabId, button.dataset.auxCard)));
       }
@@ -4506,9 +4544,9 @@
       activeAuxCards[tabId] = card.id;
       const root = document.getElementById(`aux-${tabId}-content`);
       if (!root) return;
-      const chapter = auxChapterForCard(tabId, card.id);
+      const chapter = auxChapterForCard(tabId, card.id, activeData);
       if (chapter) activeAuxChapters[tabId] = chapter.id;
-      const copy = localizedAuxCard(card);
+      const copy = localizedAuxCard(card, tabId, activeData);
       root.querySelectorAll('[data-aux-chapter]').forEach(button => {
         const selected = button.dataset.auxChapter === activeAuxChapters[tabId];
         button.classList.toggle('active', selected);
@@ -4521,8 +4559,8 @@
       });
       const detail = document.getElementById(`${tabId}-card-detail`);
       if (!detail) return;
-      const status = engineFor(tabId).status?.[card.id] || AUX_STATUS[card.id] || { kind: 'current', zh: '目前', en: 'Current' };
-      detail.innerHTML = `<div class="aux-card-detail-head"><div class="aux-card-detail-title"><h4>${esc(copy.number)} · ${esc(copy.title)}</h4><span class="aux-status ${esc(status.kind)}">${esc(status[currentLanguage])}</span></div><button class="detail-toggle" type="button" data-detail-toggle="${esc(tabId)}" aria-expanded="true" aria-controls="${tabId}-card-detail-body" aria-label="${esc(tr('collapseDetail'))}"><span class="detail-toggle-icon" aria-hidden="true">−</span><span class="detail-toggle-label">${esc(tr('collapseDetail'))}</span></button></div><div class="aux-card-detail-body" id="${tabId}-card-detail-body"><div class="aux-mechanic-column">${renderMechanicBreakdown(card, copy)}</div><div class="aux-source-column"><div class="aux-source-head"><strong>${esc(currentLanguage === 'en' ? 'Items, skills and sources' : '物品、技能與來源')}</strong><span>${esc(currentLanguage === 'en' ? 'Hover or focus a source to inspect every modifier' : '將游標移到來源上或聚焦來源，以查看完整詞綴')}</span></div><div class="focus-row" id="${tabId}-focus-row"></div></div></div>`;
+      const status = engineFor(tabId, activeData).status?.[card.id] || AUX_STATUS[card.id] || { kind: 'current', zh: '目前', en: 'Current' };
+      detail.innerHTML = `<div class="engine-detail-head aux-card-detail-head"><div class="engine-detail-title aux-card-detail-title"><h4>${esc(copy.number)} · ${esc(copy.title)}</h4><span class="aux-status ${esc(status.kind)}">${esc(status[currentLanguage])}</span></div><button class="detail-toggle" type="button" data-detail-toggle="${esc(tabId)}" aria-expanded="true" aria-controls="${tabId}-card-detail-body" aria-label="${esc(tr('collapseDetail'))}"><span class="detail-toggle-icon" aria-hidden="true">−</span><span class="detail-toggle-label">${esc(tr('collapseDetail'))}</span></button></div><div class="engine-detail-body aux-card-detail-body" id="${tabId}-card-detail-body"><div class="engine-detail-column aux-mechanic-column">${renderMechanicBreakdown(card, copy, tabId, activeData)}</div><div class="engine-detail-column aux-source-column"><div class="aux-source-head"><strong>${esc(currentLanguage === 'en' ? 'Items, skills and sources' : '物品、技能與來源')}</strong><span>${esc(currentLanguage === 'en' ? 'Hover or focus a source to inspect every modifier' : '將游標移到來源上或聚焦來源，以查看完整詞綴')}</span></div><div class="focus-row" id="${tabId}-focus-row"></div></div></div>`;
       bindDetailToggle(detail, tabId);
       renderFocusCards(card, activeData, `${tabId}-focus-row`, false);
       if (activeEngineTab === tabId) applyStepTargets(card);
@@ -4595,29 +4633,13 @@
       return data.actors?.[actor]?.skills?.find(skill => skill.id === id) || null;
     }
 
-    function renderDamageNode(step, data, index) {
-      const copy = localizedStep(step);
-      const source = damageNodeSource(step, data);
-      const icon = source?.icon
-        ? `<img src="${esc(source.icon)}" alt="" loading="lazy">`
-        : `<span class="damage-node-fallback">${esc(step.number)}</span>`;
-      return `<span class="damage-node-wrap">${index ? '<span class="damage-node-connector" aria-hidden="true"></span>' : ''}<button class="step-button" type="button" data-step="${esc(step.id)}" aria-pressed="false"><span class="damage-node-art">${icon}<span class="step-number">${esc(step.number)}</span></span><span class="step-name">${esc(copy.title)}</span><span class="step-short">${esc(copy.short)}</span></button></span>`;
-    }
-
     function renderStepRail(data) {
       const rail = document.getElementById('step-rail');
-      const engine = engineFor('damage', data);
-      const steps = engine.steps || STEPS;
-      rail.innerHTML = (engine.lanes || DAMAGE_LANES).map(lane => {
-        const laneSteps = lane.stepIds.map(id => steps.find(step => step.id === id)).filter(Boolean);
-        return `<section class="damage-lane" data-damage-lane="${esc(lane.id)}"><header class="damage-lane-head"><strong>${esc(lane.title[currentLanguage])}</strong><span>${esc(lane.hint[currentLanguage])}</span></header><div class="damage-lane-track">${laneSteps.map((step, index) => renderDamageNode(step, data, index)).join('')}</div></section>`;
-      }).join('');
-      rail.querySelectorAll('.step-button').forEach(button => button.addEventListener('click', () => {
-        const step = steps.find(candidate => candidate.id === button.dataset.step);
-        if (step) toggleDamageStep(step, data);
-      }));
-      if (activeStep) rail.querySelectorAll('.step-button').forEach(button => {
-        const selected = button.dataset.step === activeStep.id;
+      if (!rail) return;
+      rail.innerHTML = renderEngineRail('damage', data);
+      bindEngineRail('damage', data, rail);
+      if (activeStep) rail.querySelectorAll('[data-engine-entry]').forEach(button => {
+        const selected = button.dataset.engineEntry === activeStep.id;
         button.classList.toggle('active', selected);
         button.setAttribute('aria-pressed', String(selected));
       });
@@ -4657,7 +4679,7 @@
           return `<button class="dock-node${activeStep?.id === step.id ? ' active' : ''}" type="button" data-dock-step="${esc(step.id)}" aria-pressed="${activeStep?.id === step.id}"><span>${esc(step.number)}</span>${esc(copy.title)}</button>`;
         }).join('');
       } else {
-        nodeButtons = (engineFor(activeEngineTab).lanes || []).map((chapter, index) => `<button class="dock-node${activeAuxChapters[activeEngineTab] === chapter.id ? ' active' : ''}" type="button" data-dock-chapter="${esc(chapter.id)}" aria-pressed="${activeAuxChapters[activeEngineTab] === chapter.id}"><span>${String(index + 1).padStart(2, '0')}</span>${esc(chapter.title[currentLanguage])}</button>`).join('');
+        nodeButtons = (engineFor(activeEngineTab).lanes || []).map((chapter, index) => `<button class="dock-node${activeAuxChapters[activeEngineTab] === chapter.id ? ' active' : ''}" type="button" data-dock-chapter="${esc(chapter.id)}" aria-pressed="${activeAuxChapters[activeEngineTab] === chapter.id}"><span>${esc(localizedText(chapter.number) || String(index + 1).padStart(2, '0'))}</span>${esc(localizedText(chapter.title) || chapter.id)}</button>`).join('');
       }
       dock.innerHTML = `<div class="dock-tabs" role="group" aria-label="Engine views">${tabButtons}</div><div class="dock-nodes">${nodeButtons}</div><button class="dock-back" type="button" data-dock-back>${esc(currentLanguage === 'en' ? 'Explanation ↑' : '回到說明 ↑')}</button>`;
       dock.querySelectorAll('[data-dock-tab]').forEach(button => button.addEventListener('click', () => setEngineTab(button.dataset.dockTab)));
@@ -4687,7 +4709,7 @@
     function clearDamageStepSelection() {
       activeStep = null;
       clearHighlights();
-      document.querySelectorAll('.step-button').forEach(button => {
+      document.querySelectorAll('#step-rail [data-engine-entry]').forEach(button => {
         button.classList.remove('active');
         button.setAttribute('aria-pressed', 'false');
       });
@@ -4932,8 +4954,8 @@
       activeEngineTab = 'damage';
       document.querySelectorAll('[data-engine-tab]').forEach(button => button.setAttribute('aria-selected', String(button.dataset.engineTab === 'damage')));
       document.querySelectorAll('[data-engine-panel]').forEach(panel => { panel.hidden = panel.dataset.enginePanel !== 'damage'; });
-      document.querySelectorAll('.step-button').forEach(button => {
-        const selected = button.dataset.step === step.id;
+      document.querySelectorAll('#step-rail [data-engine-entry]').forEach(button => {
+        const selected = button.dataset.engineEntry === step.id;
         button.classList.toggle('active', selected);
         button.setAttribute('aria-pressed', String(selected));
       });
