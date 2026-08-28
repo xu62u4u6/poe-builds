@@ -1348,7 +1348,7 @@
                 "key": "vestigial",
                 "label": {
                   "en": "Vestigial base with a useful retained modifier",
-                  "zh": "有實用殘留詞的殘留基底"
+                  "zh": "有實用殘留詞的籠罩基底"
                 }
               }
             ],
@@ -3033,10 +3033,10 @@
       'Timeless Jewel': '永恆珠寶',
       'Cobalt Jewel': '鈷藍珠寶',
       'Medium Cluster Jewel': '中型星團珠寶',
-      'Vestigial Tarnished Spirit Shield': '殘留變色靈盾',
-      'Vestigial Strapped Mitts': '殘留綁帶手套',
-      'Vestigial Plated Greaves': '殘留鍍板脛甲',
-      'Vestigial Bone Helmet': '殘留骨盔'
+      'Vestigial Tarnished Spirit Shield': '籠罩變色靈盾',
+      'Vestigial Strapped Mitts': '籠罩綁帶手套',
+      'Vestigial Plated Greaves': '籠罩鍍板脛甲',
+      'Vestigial Bone Helmet': '籠罩骨盔'
     };
     const MOD_TEXT_ZH = {
       '221% increased Explicit Modifier magnitudes': '增加 221% 顯性詞綴大小',
@@ -3224,7 +3224,7 @@
     const PRICE_CONDITION_ZH = {
       "Doryani's Prototype 6L; core version before the reduced-extra-crit-damage implicit": '多里亞尼之型 6L；核心版本（未含減少暴擊額外傷害隱性詞）',
       '6L plus You take 50% reduced Extra Damage from Critical Strikes; current official floor was about 410c': '6L，並有承受暴擊額外傷害減少 50%；目前官方底價約 410c',
-      'Matua Tupuna on a Vestigial base plus Divine Flesh': '遠祖之顱（殘留基底）＋神聖血肉',
+      'Matua Tupuna on a Vestigial base plus Divine Flesh': '遠祖之顱（籠罩基底）＋神聖血肉',
       'Immortal Flesh; own-item replacement cost is approximate': '永生；自用替換成本為估算',
       'Finished Subsume the Source with four usable flat-Physical Abyssal jewels': '完成品歸入起源，含四顆可用的物理點傷深淵珠寶',
       'Ashes of the Stars at any workable quality; Hollow Effigy oils are priced separately': '任意可用品質的星塵；空洞雕像塗油另計',
@@ -3235,7 +3235,7 @@
       'Foe Finger rare ring; current life, fire resistance and negative lightning resistance package': '稀有戒指，含目前生命、火焰抗性與負閃電抗性套件',
       'Soul Spiral rare ring; current life, chaos resistance and negative lightning resistance package': '稀有戒指，含目前生命、混沌抗性與負閃電抗性套件',
       'Facebreaker 984% more; ordinary base': '毀面者 984% 更多；普通基底即可',
-      'Vestigial base': '殘留基底',
+      'Vestigial base': '籠罩基底',
       'Abyssus; ordinary unique base before special corruption': '深淵之喚；特殊腐化前的普通傳奇版本',
       'Stormcharger with 43% increased Effect of Lightning Ailments': '暴充，增加 43% 閃電異常效果',
       'Stormcharger variant with +3 minimum Endurance Charges': '暴充變體，+3 最小耐力球',
@@ -3731,7 +3731,7 @@
     function localizedBaseName(base) {
       if (!base) return '';
       if (currentLanguage !== 'zh') return base;
-      return ITEM_BASE_NAMES_ZH[base] || base.replace(/\bVestigial\b/g, '殘留');
+      return ITEM_BASE_NAMES_ZH[base] || base.replace(/\bVestigial\b/g, '籠罩');
     }
 
     function localizedModifierText(source, text) {
@@ -3743,7 +3743,7 @@
       if (currentLanguage !== 'zh' || !text) return text || '';
       if (PRICE_CONDITION_ZH[text]) return PRICE_CONDITION_ZH[text];
       return text
-        .replace(/Vestigial/g, '殘留')
+        .replace(/Vestigial/g, '籠罩')
         .replace(/Subsume the Source/g, '歸入起源')
         .replace(/Ashes of the Stars/g, '星塵')
         .replace(/Replica Maata's Teaching/g, '贗品．瑪塔的教導')
@@ -4918,7 +4918,7 @@
           ? (currentLanguage === 'en' ? 'Smite of Divine Judgement' : '雷鳴重擊．聖判')
           : sourceDisplayName(source);
         const mechanicTag = id === 'player-shield' && keys.includes('divine-flesh')
-          ? (currentLanguage === 'en' ? 'Vestigial · Divine Flesh' : '殘留 · 神聖血肉')
+          ? (currentLanguage === 'en' ? 'Vestigial · Divine Flesh' : '籠罩 · 神聖血肉')
           : id === 'player-jewel-5' && keys.includes('tempered-by-war')
             ? (currentLanguage === 'en' ? 'Rakiata · Tempered by War' : '拉奇亞塔 · 戰爭淬鍊')
             : '';
