@@ -64,8 +64,6 @@
     .page { position: relative; z-index: 1; width: min(1460px, calc(100% - 28px)); margin: 0 auto; padding: 8px 0 48px; }
     .character-head { display: flex; align-items: end; justify-content: space-between; gap: 22px; padding: 16px 0 18px; }
     .character-intro { min-width: 0; }
-    .site-home-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 8px; color: var(--emerald); font-size: 10px; font-weight: 650; letter-spacing: .12em; text-decoration: none; }
-    .site-home-link:hover, .site-home-link:focus-visible { color: var(--text); outline: none; }
     .character-head h1 { margin: 0; color: var(--text); font: 600 clamp(24px, 3vw, 36px)/1.08 var(--font-display); letter-spacing: -.025em; }
     .character-head p { margin: 7px 0 0; color: var(--subdued); max-width: 66ch; }
     .character-controls { display: flex; align-items: center; justify-content: end; gap: 12px; min-width: 0; padding-bottom: 2px; }
@@ -349,7 +347,11 @@
     .flask-item:hover, .full-item:hover, .jewel-node:hover { z-index: 1000; opacity: 1; filter: none; }
     .item:hover .item-tooltip, .full-item:hover .item-tooltip, .jewel-node:hover .item-tooltip { z-index: 10000; }
 
-    .build-source-link { color: var(--emerald); font-size: 10px; text-decoration: none; white-space: nowrap; }
+    .build-source-link { display: inline-flex; align-items: center; gap: 5px; color: var(--emerald); font-size: 10px; text-decoration: none; white-space: nowrap; }
+    .build-source-link .link-icon { width: 12px; height: 12px; flex: 0 0 auto; display: block; }
+    .youtube-link { color: #ff686d; }
+    .youtube-link:hover { color: #ff9295; }
+    .ninja-link { color: var(--emerald); }
     .build-source-link:hover { text-decoration: underline; }
     .snapshot-note { color: var(--faint); font-size: 10px; white-space: nowrap; }
     .mechanic-section { margin: 0 0 24px; background: transparent; border: 0; box-shadow: none; }
@@ -631,8 +633,8 @@
   <main class="page">
     <nav class="mechanic-dock" id="mechanic-dock" aria-label="Mechanic quick navigation"></nav>
     <section class="character-head" id="character">
-      <div class="character-intro"><a class="site-home-link" id="site-home-link" href="https://dionic.xyz/" data-i18n="home">DIONIC Home ↗</a><h1>Facebreaker AGoS Doryani Luminary</h1><p data-i18n="buildSubtitle">Animate Guardian of Smiting is the main damage source; the Player and Mercenary are support layers. Boss damage can be extremely high when its conditions are active, but mapping speed is relatively slow.</p></div>
-      <div class="character-controls"><a class="build-source-link" id="youtube-link" href="https://www.youtube.com/watch?v=iXaby8KKI6k" target="_blank" rel="noreferrer" data-i18n="youtubeVideo">YouTube Video ↗</a><a class="build-source-link" id="build-source-link" href="#" target="_blank" rel="noreferrer" hidden>Build source ↗</a><span class="snapshot-note" id="snapshot-note"></span><div class="language-switch" role="group" aria-label="Language"><button type="button" data-language="en" aria-pressed="true">EN</button><button type="button" data-language="zh" aria-pressed="false">中文</button></div></div>
+      <div class="character-intro"><h1>Facebreaker AGoS Doryani Luminary</h1><p data-i18n="buildSubtitle">Animate Guardian of Smiting is the main damage source; the Player and Mercenary are support layers. Boss damage can be extremely high when its conditions are active, but mapping speed is relatively slow.</p></div>
+      <div class="character-controls"><a class="build-source-link" id="my-website-link" href="https://dionic.xyz/" rel="noreferrer"><span data-i18n="myWebsite">My Website ↗</span></a><a class="build-source-link youtube-link" id="youtube-link" href="https://www.youtube.com/watch?v=iXaby8KKI6k" target="_blank" rel="noreferrer"><svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8Z"/><path fill="var(--bg-deep)" d="m9.6 15.8 6.3-3.8-6.3-3.8v7.6Z"/></svg><span data-i18n="youtubeVideo">YouTube Video ↗</span></a><a class="build-source-link ninja-link" id="build-source-link" href="#" target="_blank" rel="noreferrer" hidden><svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 20V4h4l8 10.3V4h4v16h-4L8 9.7V20H4Z"/></svg><span class="build-source-label">Build source ↗</span></a><span class="snapshot-note" id="snapshot-note"></span><div class="language-switch" role="group" aria-label="Language"><button type="button" data-language="en" aria-pressed="true">EN</button><button type="button" data-language="zh" aria-pressed="false">中文</button></div></div>
     </section>
 
     <section class="mechanic-section" id="mechanics">
@@ -1346,7 +1348,7 @@
                 "key": "vestigial",
                 "label": {
                   "en": "Vestigial base with a useful retained modifier",
-                  "zh": "有實用殘留詞的 Vestigial 基底"
+                  "zh": "有實用殘留詞的殘留基底"
                 }
               }
             ],
@@ -2916,7 +2918,7 @@
     const HIDDEN_SLOTS = new Set(['ring3', 'trinket']);
     const UI_COPY = {
       en: {
-        home: 'DIONIC Home ↗',
+        myWebsite: 'My Website ↗',
         equipment: 'Equipment',
         jewels: 'Jewels', passiveTree: 'Player · passive tree',
         fullSnapshot: 'Full snapshot · 3 actors', engine: 'Build mechanics', damageEngine: 'Damage Engine', playerDefense: 'Player Defense', guardianSurvival: 'Guardian Survival',
@@ -2938,7 +2940,7 @@
         }
       },
       zh: {
-        home: '返回 DIONIC 首頁 ↗',
+        myWebsite: '我的網頁 ↗',
         equipment: '裝備',
         jewels: '珠寶', passiveTree: '玩家 · 被動樹',
         fullSnapshot: '完整快照 · 三個角色', engine: '核心機制', damageEngine: '傷害引擎', playerDefense: '玩家防禦', guardianSurvival: '守衛防禦',
@@ -3022,6 +3024,19 @@
       'Bitter Heresy': '苦澀異端',
       'Stormblast Mine': '風暴地雷',
       'Minefield Support': '地雷網輔助'
+    };
+    const ITEM_BASE_NAMES_ZH = {
+      'Viridian Jewel': '翠綠珠寶',
+      'Ghastly Eye Jewel': '深淵珠寶',
+      'Crimson Jewel': '赤紅珠寶',
+      'Large Cluster Jewel': '大型星團珠寶',
+      'Timeless Jewel': '永恆珠寶',
+      'Cobalt Jewel': '鈷藍珠寶',
+      'Medium Cluster Jewel': '中型星團珠寶',
+      'Vestigial Tarnished Spirit Shield': '殘留變色靈盾',
+      'Vestigial Strapped Mitts': '殘留綁帶手套',
+      'Vestigial Plated Greaves': '殘留鍍板脛甲',
+      'Vestigial Bone Helmet': '殘留骨盔'
     };
     const MOD_TEXT_ZH = {
       '221% increased Explicit Modifier magnitudes': '增加 221% 顯性詞綴大小',
@@ -3209,7 +3224,7 @@
     const PRICE_CONDITION_ZH = {
       "Doryani's Prototype 6L; core version before the reduced-extra-crit-damage implicit": '多里亞尼之型 6L；核心版本（未含減少暴擊額外傷害隱性詞）',
       '6L plus You take 50% reduced Extra Damage from Critical Strikes; current official floor was about 410c': '6L，並有承受暴擊額外傷害減少 50%；目前官方底價約 410c',
-      'Matua Tupuna on a Vestigial base plus Divine Flesh': '遠祖之顱（Vestigial 基底）＋神聖血肉',
+      'Matua Tupuna on a Vestigial base plus Divine Flesh': '遠祖之顱（殘留基底）＋神聖血肉',
       'Immortal Flesh; own-item replacement cost is approximate': '永生；自用替換成本為估算',
       'Finished Subsume the Source with four usable flat-Physical Abyssal jewels': '完成品歸入起源，含四顆可用的物理點傷深淵珠寶',
       'Ashes of the Stars at any workable quality; Hollow Effigy oils are priced separately': '任意可用品質的星塵；空洞雕像塗油另計',
@@ -3220,7 +3235,7 @@
       'Foe Finger rare ring; current life, fire resistance and negative lightning resistance package': '稀有戒指，含目前生命、火焰抗性與負閃電抗性套件',
       'Soul Spiral rare ring; current life, chaos resistance and negative lightning resistance package': '稀有戒指，含目前生命、混沌抗性與負閃電抗性套件',
       'Facebreaker 984% more; ordinary base': '毀面者 984% 更多；普通基底即可',
-      'Vestigial base': 'Vestigial 基底',
+      'Vestigial base': '殘留基底',
       'Abyssus; ordinary unique base before special corruption': '深淵之喚；特殊腐化前的普通傳奇版本',
       'Stormcharger with 43% increased Effect of Lightning Ailments': '暴充，增加 43% 閃電異常效果',
       'Stormcharger variant with +3 minimum Endurance Charges': '暴充變體，+3 最小耐力球',
@@ -3713,6 +3728,12 @@
       return genericItemDisplayName(source) || source.name || '';
     }
 
+    function localizedBaseName(base) {
+      if (!base) return '';
+      if (currentLanguage !== 'zh') return base;
+      return ITEM_BASE_NAMES_ZH[base] || base.replace(/\bVestigial\b/g, '殘留');
+    }
+
     function localizedModifierText(source, text) {
       if (currentLanguage !== 'zh' || !text) return text || '';
       return MOD_TEXT_ZH[text] || text;
@@ -3722,6 +3743,7 @@
       if (currentLanguage !== 'zh' || !text) return text || '';
       if (PRICE_CONDITION_ZH[text]) return PRICE_CONDITION_ZH[text];
       return text
+        .replace(/Vestigial/g, '殘留')
         .replace(/Subsume the Source/g, '歸入起源')
         .replace(/Ashes of the Stars/g, '星塵')
         .replace(/Replica Maata's Teaching/g, '贗品．瑪塔的教導')
@@ -4014,7 +4036,7 @@
     }
 
     function sourceTooltipMeta(source, type) {
-      if (type === 'item') return { kind: rarityDisplayLabel(source), base: source.base || '' };
+      if (type === 'item') return { kind: rarityDisplayLabel(source), base: localizedBaseName(source.base || '') };
       if (type === 'spectre') return { kind: currentLanguage === 'en' ? 'Spectre support' : '幽魂支援', base: currentLanguage === 'en' ? 'Raise Spectre' : '召喚幽魂' };
       if (type === 'state') return { kind: source.eyebrow || (currentLanguage === 'en' ? 'Mechanic' : '機制'), base: source.value || '' };
       const level = typeof source.level === 'number'
@@ -4180,7 +4202,7 @@
       root.innerHTML = jewels.map(jewel => {
         const displayName = sourceDisplayName(jewel);
         const image = jewel.icon ? `<img src="${esc(jewel.icon)}" alt="${esc(displayName)}" loading="lazy">` : '';
-        return `<div class="jewel-node ${esc(rarityToken(jewel))}" data-actor="${esc(owner)}" data-item-id="${esc(jewel.id)}"><div class="jewel-art">${image}</div><div class="jewel-copy"><div class="jewel-name">${esc(displayName)}</div><div class="jewel-base">${esc(jewel.base)}</div></div>${createTooltip(jewel)}</div>`;
+        return `<div class="jewel-node ${esc(rarityToken(jewel))}" data-actor="${esc(owner)}" data-item-id="${esc(jewel.id)}"><div class="jewel-art">${image}</div><div class="jewel-copy"><div class="jewel-name">${esc(displayName)}</div><div class="jewel-base">${esc(localizedBaseName(jewel.base))}</div></div>${createTooltip(jewel)}</div>`;
       }).join('');
     }
 
@@ -4307,7 +4329,7 @@
 
     function focusModText(source, type, keys, id) {
       if (type === 'item') {
-        if (!keys.length) return source?.base ? esc(source.base) : (currentLanguage === 'en' ? 'Target configuration' : '目標配置');
+        if (!keys.length) return source?.base ? esc(localizedBaseName(source.base)) : (currentLanguage === 'en' ? 'Target configuration' : '目標配置');
         const mods = focusModEntries(source).filter(entry => keys.includes(entry.key));
         return mods.length ? mods.map(mod => `<span class="focus-mod-line">${esc(mod.text)}</span>`).join('') : (currentLanguage === 'en' ? 'No matching snapshot modifier' : '目前快照沒有對應詞綴');
       }
@@ -4348,7 +4370,7 @@
           || ((type === 'gem' || type === 'skill') && gemModMatchesFocus(id, keys, entry.rawText || entry.text));
         return `<div>${highlighted ? `<mark>${esc(entry.text)}</mark>` : esc(entry.text)}</div>`;
       }).join('');
-      const base = source?.base ? `<div class="focus-card-base">${esc(source.base)}</div>` : '';
+      const base = source?.base ? `<div class="focus-card-base">${esc(localizedBaseName(source.base))}</div>` : '';
       const role = localizedRoleText(source) ? `<div class="focus-card-detail">${esc(localizedRoleText(source))}</div>` : '';
       const meta = type !== 'item' && source ? `<div class="focus-card-source">${esc(gemDisplayLevel(source))}/${esc(source.quality ?? 0)}Q · ${esc(sourceKindLabel(source) || (currentLanguage === 'en' ? 'skill' : '技能'))}</div>` : '';
       const special = id === 'agos' && keys.includes('conversion')
@@ -4551,7 +4573,10 @@
       document.querySelectorAll('[data-language]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.language === currentLanguage)));
       updateDetailToggle(document.getElementById('step-detail'), 'damage');
       const buildSource = document.getElementById('build-source-link');
-      if (buildSource && !buildSource.hidden) buildSource.textContent = buildSource.dataset.sourceKind === 'pob' ? tr('pob') : tr('buildSnapshot');
+      if (buildSource && !buildSource.hidden) {
+        const label = buildSource.querySelector('.build-source-label');
+        if (label) label.textContent = buildSource.dataset.sourceKind === 'pob' ? tr('pob') : tr('buildSnapshot');
+      }
       const snapshotNote = document.getElementById('snapshot-note');
       if (snapshotNote) {
         const updatedUtc = data?.snapshot?.updatedUtc;
@@ -4893,7 +4918,7 @@
           ? (currentLanguage === 'en' ? 'Smite of Divine Judgement' : '雷鳴重擊．聖判')
           : sourceDisplayName(source);
         const mechanicTag = id === 'player-shield' && keys.includes('divine-flesh')
-          ? (currentLanguage === 'en' ? 'Vestigial · Divine Flesh' : 'Vestigial · 神聖血肉')
+          ? (currentLanguage === 'en' ? 'Vestigial · Divine Flesh' : '殘留 · 神聖血肉')
           : id === 'player-jewel-5' && keys.includes('tempered-by-war')
             ? (currentLanguage === 'en' ? 'Rakiata · Tempered by War' : '拉奇亞塔 · 戰爭淬鍊')
             : '';
